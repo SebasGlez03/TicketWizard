@@ -1,0 +1,129 @@
+CREATE DATABASE ticketwizard_p1bda_235616;
+
+USE ticketwizard_p1bda_235616;
+
+CREATE TABLE estados (
+	idEstado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreEstado VARCHAR(45) NOT NULL
+);
+
+INSERT INTO estados(nombreEstado)
+VALUES ("Sonora"), ("Sinaloa"), ("Chihuahua");
+
+CREATE TABLE ciudades (
+	idCiudad INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreCiudad VARCHAR(45) NOT NULL,
+    idEstado INT NOT NULL,
+    FOREIGN KEY (idEstado) REFERENCES estados(idEstado)
+);
+
+INSERT INTO ciudades(nombreCiudad, idEstado)
+VALUES ("Ciudad Obregon", 1), ("Hermosillo", 1), ("Mochis", 2), ("Ahumada", 3);
+
+CREATE TABLE personas (
+	idPersona INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(70) NOT NULL,
+    apellidoPaterno VARCHAR(45) NOT NULL,
+    apellidoMaterno VARCHAR(45) NOT NULL,
+    correoElectronico VARCHAR(100) NOT NULL,
+    calle VARCHAR(45) NOT NULL,
+    colonia VARCHAR(45) NOT NULL,
+    numCasa VARCHAR(10) NOT NULL,
+    fechaNacimiento DATE NOT NULL
+);
+
+INSERT INTO personas(
+	nombres,
+    apellidoPaterno,
+    apellidoMaterno,
+    correoElectronico,
+    calle,
+    colonia,
+    numCasa,
+    fechaNacimiento
+)
+VALUES
+('Juan', 'Pérez', 'Gómez', 'juan.perez@gmail.com', 'Calle Falsa 123', 'Centro', 101, '1990-05-15'),
+('Ana', 'López', 'Martínez', 'ana.lopez@hotmail.com', 'Avenida Reforma 456', 'Santa Fe', 202, '1985-08-25'),
+('Carlos', 'González', 'Ruiz', 'carlos.gonzalez@yahoo.com', 'Calle 5 de Febrero 789', 'Juárez', 303, '1992-11-30');
+
+CREATE TABLE recintos (
+	idRecinto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreRecinto VARCHAR(45) NOT NULL,
+    capacidad INT NOT NULL
+);
+
+INSERT INTO recintos(nombreRecinto, capacidad)
+VALUES ("El Manzano", 300), ("Estadio Canica", 2000);
+
+CREATE TABLE asientos (
+	idAsiento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    fila VARCHAR(5) NOT NULL,
+    numeroAsiento VARCHAR(5) NOT NULL,
+    idRecinto INT NOT NULL,
+    FOREIGN KEY (idRecinto) REFERENCES recintos(idRecinto)
+);
+
+INSERT INTO asientos(fila, numeroAsiento, idRecinto)
+VALUES("A", "1", 1), ("B", "2", 1), ("A", "1", 2), ("B", "2", 2);
+
+CREATE TABLE eventos (
+	idEvento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombreEvento VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(150),
+    idRecinto INT,
+    FOREIGN KEY (idRecinto) REFERENCES recintos(idRecinto)
+);
+
+INSERT INTO eventos (nombreEvento, descripcion, idRecinto) 
+VALUES 
+('Concierto de Rock', 'Un evento lleno de energía con bandas locales e internacionales.', 2),
+('Feria de Tecnología', 'Exposición de gadgets, innovaciones tecnológicas y conferencias.', 1);
+
+CREATE TABLE eventos_se_realizan_ciudades(
+	idEventosCiudades INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idEvento INT NOT NULL,
+    idCiudad INT NOT NULL,
+    FOREIGN KEY (idEvento) REFERENCES eventos(idEvento),
+    FOREIGN KEY (idCiudad) REFERENCES ciudades(idCiudad)
+);
+
+INSERT INTO eventos_se_realizan_ciudades(idEvento, idCiudad)
+VALUES (1, 1), (2, 2);
+
+CREATE TABLE boletos (
+	idBoleto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    numSerie VARCHAR(8) NOT NULL,
+    precioOriginal INT,
+    idAsiento INT,
+    idEvento INT,
+    FOREIGN KEY (idAsiento) REFERENCES asientos(idAsiento),
+    FOREIGN KEY (idEvento) REFERENCES eventos(idEvento)
+);
+
+INSERT INTO boletos (numSerie, precioOriginal, idAsiento, idEvento) 
+VALUES 
+('A1234567', 500, 1, 1),
+('B2345678', 300, 2, 2),
+('C3456789', 450, 3, 1);
+
+CREATE TABLE saldo_personas(
+	idSaldo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    saldo INT NOT NULL DEFAULT 0,
+    idPersona INT NOT NULL,
+    FOREIGN KEY (idPersona) REFERENCES personas(idPersona)
+);
+
+INSERT INTO saldo_personas(saldo, idPersona)
+VALUES (3200, 1), (500, 2), (40, 3);
+
+CREATE TABLE persona_compra_boleto(
+	idCompra INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idPersona INT NOT NULL,
+    idBoleto INT NOT NULL,
+    FOREIGN KEY (idPersona) REFERENCES personas(idPersona),
+    FOREIGN KEY (idBoleto) REFERENCES boletos(idBoleto)
+);
+
+INSERT INTO persona_compra_boleto(idPersona, idBoleto)
+VALUES (1, 1);
