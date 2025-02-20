@@ -3,12 +3,15 @@ ticketwizard\dtos\RecintosDTO.class
 ticketwizard\presentacion\FrmInicioSesion$2.class
 ticketwizard\persistencia\PersonasDAO.class
 ticketwizard\presentacion\FrmInicioSesion.class
+ticketwizard\control\ControlEventos.class
 ticketwizard\dtos\EventosDTO.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\presentacion\FrmInicioSesion$1.class
 ticketwizard\persistencia\RecintosDAO.class
+ticketwizard\presentacion\CatalogoEventos$1.class
 ticketwizard\dtos\PersonasDTO.class
 ticketwizard\entidades\Recintos.class
 ticketwizard\persistencia\EventosDAO.class
+ticketwizard\presentacion\CatalogoEventos.class
 ticketwizard\TicketWizard.class
 ticketwizard\entidades\Eventos.class
