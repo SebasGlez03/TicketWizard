@@ -69,30 +69,12 @@ public class Recintos {
     }
 
     /**
-     * Establecer el codigo identificador del recinto
-     *
-     * @param codigoRecinto codigo identificador del recinto a establecer
-     */
-    public void setCodigoRecinto(Integer codigoRecinto) {
-        this.codigoRecinto = codigoRecinto;
-    }
-
-    /**
      * Obtener el nombre del recinto
      *
      * @return nombre del recinto
      */
     public String getNombre() {
         return nombre;
-    }
-
-    /**
-     * Establecer el nombre del recinto
-     *
-     * @param nombre nombre del recinto a establecer
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     /**
@@ -105,15 +87,6 @@ public class Recintos {
     }
 
     /**
-     * Establecer el estado en el que se encuentra el recinto
-     *
-     * @param estado estado en el que se encuentra el recinto a establecer
-     */
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    /**
      * Obtener ciudad en la que se encuentra el recinto
      *
      * @return ciudad en la que se encuentra el recinto
@@ -123,31 +96,12 @@ public class Recintos {
     }
 
     /**
-     * Establecer ciudad en la que se encuentra el recinto
-     *
-     * @param ciudad ciudad en la que se encuentra el recinto a establecer
-     */
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    /**
      * Obtener cantidad de asientos con los que cuenta el recinto
      *
      * @return cantidad de asientos con los que cuenta el recinto
      */
     public Integer getCantidadAsientos() {
         return cantidadAsientos;
-    }
-
-    /**
-     * Establecer cantidad de asientos con los que quenta el recinto
-     *
-     * @param cantidadAsientos cantidad de asientos con los que cuenta el
-     * recinto a establecer
-     */
-    public void setCantidadAsientos(Integer cantidadAsientos) {
-        this.cantidadAsientos = cantidadAsientos;
     }
 
     /**

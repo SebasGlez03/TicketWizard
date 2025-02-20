@@ -70,30 +70,12 @@ public class Eventos {
     }
 
     /**
-     * Establecer el codigo identificador del evento
-     *
-     * @param codigoEvento codigo identificador del evento a establecer
-     */
-    public void setCodigoEvento(Integer codigoEvento) {
-        this.codigoEvento = codigoEvento;
-    }
-
-    /**
      * Obtener el nombre del evento
      *
      * @return valor del nombre del evento
      */
     public String getNombre() {
         return nombre;
-    }
-
-    /**
-     * Establecer el nombre del evento
-     *
-     * @param nombre nombre del evento a establecer
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     /**
@@ -106,15 +88,6 @@ public class Eventos {
     }
 
     /**
-     * Establecer la descripcion del evento
-     *
-     * @param descripcion descripcion del evento a establecer
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    /**
      * Obtener fecha y hora de el evento
      *
      * @return valor de la fecha y hora de el evento
@@ -124,31 +97,12 @@ public class Eventos {
     }
 
     /**
-     * Establecer la fecha y hora de el evento
-     *
-     * @param fechaHora fecha y hora del evento a establecer
-     */
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
-    }
-
-    /**
      * Obtener codigo identificador del recinto en donde se realizara el evento
      *
      * @return valor del codigo identificador del recinto
      */
     public Integer getCodigoRecinto() {
         return codigoRecinto;
-    }
-
-    /**
-     * Establecer codigo identificaidor del recinto en donde se realizara el
-     * evento
-     *
-     * @param codigoRecinto codigo identificador del recinto a establecer
-     */
-    public void setCodigoRecinto(Integer codigoRecinto) {
-        this.codigoRecinto = codigoRecinto;
     }
 
     /**

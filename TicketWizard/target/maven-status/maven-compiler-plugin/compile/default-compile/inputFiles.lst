@@ -1,8 +1,12 @@
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\RecintosDTO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\ConexionBD.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmInicioSesion.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Eventos.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\EventosDTO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\PersonasDTO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\TicketWizard.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\RecintosDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Recintos.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\EventosDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\PersonasDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Personas.java
