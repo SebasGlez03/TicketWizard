@@ -5,8 +5,10 @@ package ticketwizard;
 
 import java.util.List;
 import ticketwizard.entidades.Eventos;
+import ticketwizard.entidades.Recintos;
 import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.EventosDAO;
+import ticketwizard.persistencia.RecintosDAO;
 
 /**
  *
@@ -20,5 +22,12 @@ public class TicketWizard {
         EventosDAO eventosDAO = new EventosDAO(conexionBD);
         List<Eventos> listaEventos = eventosDAO.consultarEventos();
         System.out.println(listaEventos);
+
+        System.out.println("a");
+
+        RecintosDAO recintosDAO = new RecintosDAO(conexionBD);
+        List<Recintos> listaRecintos = recintosDAO.consultarRecintos();
+        System.out.println(listaRecintos);
+
     }
 }

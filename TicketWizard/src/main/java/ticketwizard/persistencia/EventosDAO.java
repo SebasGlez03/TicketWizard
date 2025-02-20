@@ -11,9 +11,11 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import ticketwizard.dtos.EventosDTO;
 import ticketwizard.entidades.Eventos;
 
 /**
+ * Clase Data Acces Object para la tabla de Eventos
  *
  * @author PC
  */
@@ -66,7 +68,7 @@ public class EventosDAO {
             }
 
         } catch (SQLException ex) {
-            System.err.println("Error al consultar artistas");
+            System.err.println("Error al consultar eventos");
         }
         return listaEventos;
     }

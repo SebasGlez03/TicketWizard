@@ -1,3 +1,6 @@
+ticketwizard\dtos\RecintosDTO.class
+ticketwizard\persistencia\RecintosDAO.class
+ticketwizard\entidades\Recintos.class
 ticketwizard\dtos\EventosDTO.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\persistencia\EventosDAO.class
