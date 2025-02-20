@@ -1,3 +1,4 @@
+
 create database Ticketwizard;
 use Ticketwizard;
 
@@ -14,6 +15,7 @@ create table personas(
 	apellidoMaterno varchar(30) not null,
     apellidoPaterno  varchar(30) not null,
     nombreCompleto varchar(90) generated always as(concat(nombre, " ", apellidoPaterno, " ", apellidoMaterno)) stored not null,
+    contrasenia varchar(50) not null,
     correoElectronico varchar(100) not null,
     saldo decimal(10, 2) not null,
     fechaNacimiento date not null,
@@ -71,4 +73,3 @@ create table compras(
     foreign key(codigoTransaccion) references transaciones(codigoTransaccion),
     foreign key(CodigoBoleto) references boletos(codigoBoleto)
 )
-
