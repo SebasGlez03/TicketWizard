@@ -30,6 +30,12 @@ public class EventosDAO {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Metodo para obtener la lista de todos los eventos registrados en la base
+     * de datos
+     *
+     * @return Lista con todos los eventos registrados en la base de datos
+     */
     public List<Eventos> consultarEventos() {
         String codigoSQL = """
                            SELECT codigoEvento, nombre, descripcion, fechaHora, codigoRecinto
