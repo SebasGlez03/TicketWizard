@@ -5,6 +5,7 @@
 package ticketwizard.presentacion;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ticketwizard.control.ControlEventos;
 import ticketwizard.entidades.Eventos;
@@ -51,6 +52,10 @@ public class CatalogoEventos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEventos = new javax.swing.JTable();
         btnClose = new javax.swing.JLabel();
+        btnMiPerfil = new javax.swing.JLabel();
+        btnVentaReventa = new javax.swing.JLabel();
+        btnMisBoletos = new javax.swing.JLabel();
+        btnEventos = new javax.swing.JLabel();
         bgCatalogoEventos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,6 +82,38 @@ public class CatalogoEventos extends javax.swing.JFrame {
         });
         getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 20, 20));
 
+        btnMiPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMiPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMiPerfilMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnMiPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 60, 20));
+
+        btnVentaReventa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVentaReventa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVentaReventaMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnVentaReventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 120, 20));
+
+        btnMisBoletos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMisBoletos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMisBoletosMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnMisBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 80, 20));
+
+        btnEventos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEventos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEventosMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 20));
+
         bgCatalogoEventos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgCatalogoEventos.png"))); // NOI18N
         getContentPane().add(bgCatalogoEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
@@ -87,6 +124,22 @@ public class CatalogoEventos extends javax.swing.JFrame {
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
         this.dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
+
+    private void btnMiPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiPerfilMouseClicked
+        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnMiPerfilMouseClicked
+
+    private void btnMisBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisBoletosMouseClicked
+        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnMisBoletosMouseClicked
+
+    private void btnVentaReventaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentaReventaMouseClicked
+        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnVentaReventaMouseClicked
+
+    private void btnEventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEventosMouseClicked
+        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnEventosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -126,6 +179,10 @@ public class CatalogoEventos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgCatalogoEventos;
     private javax.swing.JLabel btnClose;
+    private javax.swing.JLabel btnEventos;
+    private javax.swing.JLabel btnMiPerfil;
+    private javax.swing.JLabel btnMisBoletos;
+    private javax.swing.JLabel btnVentaReventa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblEventos;
     // End of variables declaration//GEN-END:variables
