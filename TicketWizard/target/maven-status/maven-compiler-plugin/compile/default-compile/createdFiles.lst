@@ -1,2 +1,5 @@
+ticketwizard\dtos\EventosDTO.class
+ticketwizard\persistencia\ConexionBD.class
+ticketwizard\persistencia\EventosDAO.class
 ticketwizard\TicketWizard.class
 ticketwizard\entidades\Eventos.class

@@ -1,8 +1,12 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package ticketwizard;
+
+import java.util.List;
+import ticketwizard.entidades.Eventos;
+import ticketwizard.persistencia.ConexionBD;
+import ticketwizard.persistencia.EventosDAO;
 
 /**
  *
@@ -11,6 +15,10 @@ package ticketwizard;
 public class TicketWizard {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ConexionBD conexionBD = new ConexionBD();
+
+        EventosDAO eventosDAO = new EventosDAO(conexionBD);
+        List<Eventos> listaEventos = eventosDAO.consultarEventos();
+        System.out.println(listaEventos);
     }
 }
