@@ -11,6 +11,7 @@ import ticketwizard.persistencia.EventosDAO;
 import ticketwizard.presentacion.CatalogoEventos;
 
 /**
+ * Clase control que establece los metodos para mostrar los Frms
  *
  * @author PC
  */
@@ -20,11 +21,19 @@ public class ControlEventos {
     private EventosDAO eventosDAO = new EventosDAO(conexionBD);
     private CatalogoEventos frmCatalogoEventos;
 
+    /**
+     * Metodo que inicia el caso de uso para mostrar el catalogo de eventos
+     */
     public void iniciarCasoUso() {
         this.frmCatalogoEventos = new CatalogoEventos(this);
         this.frmCatalogoEventos.setVisible(true);
     }
 
+    /**
+     * Metodo que consulta la lista de todos los eventos
+     *
+     * @return Lista con el contenido de todos los eventos
+     */
     public List<Eventos> consultarListaEventos() {
         return this.eventosDAO.consultarEventos();
     }

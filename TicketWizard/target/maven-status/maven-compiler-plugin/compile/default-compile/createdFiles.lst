@@ -1,5 +1,6 @@
 ticketwizard\entidades\Personas.class
 ticketwizard\dtos\RecintosDTO.class
+ticketwizard\presentacion\FrmInicioSesion$2.class
 ticketwizard\persistencia\PersonasDAO.class
 ticketwizard\presentacion\CatalogoEventos$3.class
 ticketwizard\presentacion\FrmInicioSesion.class

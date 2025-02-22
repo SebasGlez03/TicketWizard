@@ -71,19 +71,22 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PersonasDAO persona = new PersonasDAO(conexionBD);
-        try {
-            if (persona.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText()).getCodigoPersona() != null) {
-                JOptionPane.showMessageDialog(this, "Se inicio sesion correctamente", "Aprobado", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "No se ha podido iniciar sesion", "Denegado", JOptionPane.ERROR_MESSAGE);
-        }
+
+        persona.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText());
+
+//        try {
+//            if (persona.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText()).getCodigoPersona() != null) {
+//                JOptionPane.showMessageDialog(this, "Se inicio sesion correctamente", "Aprobado", JOptionPane.INFORMATION_MESSAGE);
+//            }
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(this, "No se ha podido iniciar sesion", "Denegado", JOptionPane.ERROR_MESSAGE);
+//        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
+    /**
+     * @param args the command line arguments
+     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

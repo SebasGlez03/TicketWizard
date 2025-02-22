@@ -11,9 +11,11 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import ticketwizard.entidades.Personas;
 
 /**
+ * Clase Data Acces Object de la clase Personas
  *
  * @author PC
  */
@@ -21,10 +23,21 @@ public class PersonasDAO {
 
     private final ConexionBD conexionBD;
 
+    /**
+     * Constructor que inicializa la conexion con la base de datos
+     *
+     * @param conexionBD Conexion con los datos de la base de datos
+     */
     public PersonasDAO(ConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Clase que se encarga de obtener todos los registros de las personas de la
+     * base de datos
+     *
+     * @return Lista con todos las personas de la base de datos
+     */
     public List<Personas> consultarPersonas() {
         String codigoSQL = """
                            SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, direccion
@@ -64,6 +77,15 @@ public class PersonasDAO {
         return listaPersonas;
     }
 
+    /**
+     * Metodo que se encarga de obtener una persona que exista en la base de
+     * datos para verificar su existencia en el sistema
+     *
+     * @param correo Correo electronico de la persona
+     * @param contrasenia Contrasenia de la persona
+     * @return Objeto de tipo personas con los datos de una persona encontrada
+     * en el sistema
+     */
     public Personas iniciarSesion(String correo, String contrasenia) {
         String codigoSQL = """
                        SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, direccion
@@ -96,9 +118,11 @@ public class PersonasDAO {
 
                     return new Personas(codigoPersona, nombre, apellidoPaterno, apellidoMaterno, correoElectronico, contraseniaBD, saldo, fechaNacimiento, direccion);
                 } else {
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Contraseña incorrecta.");
                 }
             } else {
+                JOptionPane.showMessageDialog(null, "Contrasenia incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
                 System.out.println("Correo no registrado.");
             }
 

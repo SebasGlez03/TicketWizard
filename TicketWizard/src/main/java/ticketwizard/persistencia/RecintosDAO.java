@@ -30,6 +30,12 @@ public class RecintosDAO {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Metodo que se encarga de obtener todos los registros de los recintos de
+     * la base de datos
+     *
+     * @return Lista con todos los recintos de la base de datos
+     */
     public List<Recintos> consultarRecintos() {
         String codigoSQL = """
                            SELECT codigoRecinto, nombre, estado, ciudad, cantidadAsientos

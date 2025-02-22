@@ -11,6 +11,7 @@ import ticketwizard.control.ControlEventos;
 import ticketwizard.entidades.Eventos;
 
 /**
+ * Clase que muestra el catalogo de eventos
  *
  * @author PC
  */
@@ -19,7 +20,7 @@ public class CatalogoEventos extends javax.swing.JFrame {
     private final ControlEventos control;
 
     /**
-     * Creates new form CatalogoEventos
+     * Constructor que inicializa los datos del Frame
      */
     public CatalogoEventos(ControlEventos control) {
         initComponents();
@@ -27,6 +28,9 @@ public class CatalogoEventos extends javax.swing.JFrame {
         llenarTablaEventos();
     }
 
+    /**
+     * Metodo que llena la tabla con todos los eventos
+     */
     private void llenarTablaEventos() {
         List<Eventos> listaEventos = this.control.consultarListaEventos();
         DefaultTableModel model = (DefaultTableModel) this.tblEventos.getModel();
