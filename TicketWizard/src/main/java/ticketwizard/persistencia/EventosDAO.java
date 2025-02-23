@@ -73,4 +73,34 @@ public class EventosDAO {
         return listaEventos;
     }
 
+    public Eventos consultarEventoPorID(Integer codigoEventoRecibido) {
+        String codigoSQL = """
+                           SELECT codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos
+                           FROM eventos
+                           WHERE codigoEvento = ?;
+                           """;
+
+        try {
+            // Crear la conexión con la base de datos
+            Connection conexion = conexionBD.crearConexion();
+
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, codigoEventoRecibido); // Se pasa el codigoPersona al PreparedStatement
+
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+            Integer nombre = resultadosConsulta.getInt("nombre");
+            Integer descripcion = resultadosConsulta.getInt("descripcion");
+            Integer fechaHora = resultadosConsulta.getInt("fechaHora");
+            Integer estado = resultadosConsulta.getInt("estado");
+            Integer ciudad = resultadosConsulta.getInt("ciudad");
+            Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
+        } catch (SQLException ex) {
+            System.err.println("Ha ocurrido un error al consultar el evento por id: " + ex);
+        }
+
+        return null;
+    }
+
 }

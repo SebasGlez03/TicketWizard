@@ -14,11 +14,11 @@ import java.util.Objects;
  */
 public class Eventos {
 
-    Integer codigoEvento;
-    String nombre;
-    String descripcion;
-    Date fechaHora;
-    Integer codigoRecinto;
+    private Integer codigoEvento;
+    private String nombre;
+    private String descripcion;
+    private Date fechaHora;
+    private Integer codigoRecinto;
 
     /**
      * Constructor por omision

@@ -13,16 +13,16 @@ import java.util.Date;
  */
 public class PersonasDTO {
 
-    String nombre;
-    String apellidoPaterno;
-    String apellidoMaterno;
-    String correoElectronico;
-    String contrasenia;
-    double saldo;
-    Date fechaNacimiento;
-    String calle;
-    String colonia;
-    String numeroCasa;
+    private String nombre;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
+    private String correoElectronico;
+    private String contrasenia;
+    private double saldo;
+    private Date fechaNacimiento;
+    private String calle;
+    private String colonia;
+    private String numeroCasa;
 
     /**
      * Constructor que inicializa todos los atributos de la clase con el valor

@@ -37,8 +37,8 @@ public class PersonasDAO {
     }
 
     /**
-     * Clase que se encarga de obtener todos los registros de las personas de la
-     * base de datos
+     * Metodo que se encarga de obtener todos los registros de las personas de
+     * la base de datos
      *
      * @return Lista con todos las personas de la base de datos
      */
@@ -80,9 +80,58 @@ public class PersonasDAO {
             }
 
         } catch (SQLException ex) {
-            System.err.println("Error al consultar recintos" + ex);
+            System.err.println("Error al consultar personas" + ex);
         }
         return listaPersonas;
+    }
+
+    /**
+     * Obtiene una persona de la base de datos por medio de su codigo
+     * identificador
+     *
+     * @param codigoPersonaRecibido Codigo identificador de la persona a buscar
+     * en la base de datos
+     * @return Persona con el codigo identificador buscado
+     */
+    public Personas consultarPersonaPorID(Integer codigoPersonaRecibido) {
+        String codigoSQL = """
+                           SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, calle, colonia, numero
+                           FROM personas
+                           WHERE codigoPersona = ?;
+                           """;
+
+        try {
+            // Crear la conexión con la base de datos
+            Connection conexion = conexionBD.crearConexion();
+
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, codigoPersonaRecibido); // Se pasa el codigoPersona al PreparedStatement
+
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            Integer codigoPersona = resultadosConsulta.getInt("codigoPersona");
+            String nombre = resultadosConsulta.getString("nombre");
+            String apellidoMaterno = resultadosConsulta.getString("apellidoMaterno");
+            String apellidoPaterno = resultadosConsulta.getString("apellidoPaterno");
+            String correoElectronico = resultadosConsulta.getString("correoElectronico");
+            String contrasenia = resultadosConsulta.getString("contrasenia");
+            double saldo = resultadosConsulta.getDouble("saldo");
+            Date fechaNacimiento = resultadosConsulta.getDate("fechaNacimiento");
+            String calle = resultadosConsulta.getString("calle");
+            String colonia = resultadosConsulta.getString("colonia");
+            String numero = resultadosConsulta.getString("numero");
+
+            Personas persona = new Personas(codigoPersona, nombre,
+                    apellidoPaterno, apellidoMaterno, correoElectronico,
+                    contrasenia, saldo, fechaNacimiento, calle, colonia, numero);
+
+            return persona;
+
+        } catch (SQLException ex) {
+            System.err.println("Error al consultar personas por id: " + ex);
+        }
+
+        return null;
     }
 
     /**

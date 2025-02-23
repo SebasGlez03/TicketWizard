@@ -14,17 +14,17 @@ import java.util.Objects;
  */
 public class Personas {
 
-    Integer codigoPersona;
-    String nombre;
-    String apellidoPaterno;
-    String apellidoMaterno;
-    String correoElectronico;
-    String contrasenia;
-    double saldo;
-    Date fechaNacimiento;
-    String calle;
-    String colonia;
-    String numeroCasa;
+    private Integer codigoPersona;
+    private String nombre;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
+    private String correoElectronico;
+    private String contrasenia;
+    private double saldo;
+    private Date fechaNacimiento;
+    private String calle;
+    private String colonia;
+    private String numeroCasa;
 
     /**
      * Constructor por omision
@@ -350,7 +350,6 @@ public class Personas {
         return Objects.equals(this.codigoPersona, other.codigoPersona);
     }
 
-
     /**
      * Metodo que convierte todos los atributos de la clase a un valor de tipo
      * String
@@ -361,6 +360,5 @@ public class Personas {
     public String toString() {
         return "Personas{" + "codigoPersona=" + codigoPersona + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correoElectronico=" + correoElectronico + ", contrasenia=" + contrasenia + ", saldo=" + saldo + ", fechaNacimiento=" + fechaNacimiento + ", calle=" + calle + ", colonia=" + colonia + ", numeroCasa=" + numeroCasa + '}';
     }
-    
 
 }

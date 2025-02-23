@@ -13,10 +13,10 @@ import java.util.Date;
  */
 public class EventosDTO {
 
-    String nombre;
-    String descripcion;
-    Date fechaHora;
-    Integer codigoRecinto;
+    private String nombre;
+    private String descripcion;
+    private Date fechaHora;
+    private Integer codigoRecinto;
 
     /**
      * Constructor que inicializa los atributos de la clase al valor de sus
