@@ -18,7 +18,9 @@ public class Eventos {
     private String nombre;
     private String descripcion;
     private Date fechaHora;
-    private Integer codigoRecinto;
+    private String estado;
+    private String ciudad;
+    private Integer cantidadAsientos;
 
     /**
      * Constructor por omision
@@ -33,16 +35,16 @@ public class Eventos {
      * @param nombre Nombre del evento
      * @param descripcion Descripcion del evento
      * @param fechaHora Fecha Hora de el evento
-     * @param Estado Estado donde ocurre el evento
-     * @param Ciudad Ciudad donde ocurre el evento
+     * @param estado Estado donde ocurre el evento
+     * @param ciudad Ciudad donde ocurre el evento
      * @param cantidadAsientos cantidad de asientos del evento
      */
-    public Eventos(String nombre, String descripcion, Date fechaHora, String Estado, String Ciudad, Integer cantidadAsientos) {    
+    public Eventos(String nombre, String descripcion, Date fechaHora, String estado, String ciudad, Integer cantidadAsientos) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaHora = fechaHora;
-        this.Estado = Estado;
-        this.Ciudad = Ciudad;
+        this.estado = estado;
+        this.ciudad = ciudad;
         this.cantidadAsientos = cantidadAsientos;
     }
 
@@ -54,17 +56,17 @@ public class Eventos {
      * @param nombre Nombre del evento
      * @param descripcion Descripcion del evento
      * @param fechaHora Fceha hora de el evento
-     * @param Estado Estado donde ocurre el evento
-     * @param Ciudad Ciudad donde ocurre el evento
+     * @param estado Estado donde ocurre el evento
+     * @param ciudad Ciudad donde ocurre el evento
      * @param cantidadAsientos cantidad de asientos del evento
      */
-    public Eventos(Integer codigoEvento, String nombre, String descripcion, Date fechaHora, String Estado, String Ciudad, Integer cantidadAsientos) {
+    public Eventos(Integer codigoEvento, String nombre, String descripcion, Date fechaHora, String estado, String ciudad, Integer cantidadAsientos) {
         this.codigoEvento = codigoEvento;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaHora = fechaHora;
-        this.Estado = Estado;
-        this.Ciudad = Ciudad;
+        this.estado = estado;
+        this.ciudad = ciudad;
         this.cantidadAsientos = cantidadAsientos;
     }
 
@@ -85,23 +87,23 @@ public class Eventos {
     public String getNombre() {
         return nombre;
     }
-    
+
     /**
      * Obtener el estado del evento
      *
      * @return El estado donde ocurre el evento
      */
     public String getEstado() {
-        return Estado;
+        return estado;
     }
 
     /**
      * Obtener La ciudad del evento
      *
-     * @return La ciudad donde ocurre el Evento 
+     * @return La ciudad donde ocurre el Evento
      */
     public String getCiudad() {
-        return Ciudad;
+        return ciudad;
     }
 
     /**
@@ -164,7 +166,7 @@ public class Eventos {
         return Objects.equals(this.codigoEvento, other.codigoEvento);
     }
 
-     /**
+    /**
      * Metodo que convierte todos los atributos de la clase a un valor de tipo
      * String
      *
@@ -172,9 +174,7 @@ public class Eventos {
      */
     @Override
     public String toString() {
-        return "Eventos{" + "codigoEvento=" + codigoEvento + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaHora=" + fechaHora + ", Estado=" + Estado + ", Ciudad=" + Ciudad + ", cantidadAsientos=" + cantidadAsientos + '}';
+        return "Eventos{" + "codigoEvento=" + codigoEvento + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaHora=" + fechaHora + ", Estado=" + estado + ", Ciudad=" + ciudad + ", cantidadAsientos=" + cantidadAsientos + '}';
     }
 
-  
-    
 }
