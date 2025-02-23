@@ -65,7 +65,7 @@ public class EventosDAO {
                 String ciudad = resultadosConsulta.getString("ciudad");
                 Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
                 Eventos evento = new Eventos(
-                        codigoEvento, nombre, descripcion, fechaHora, estado, ciudad,cantidadAsientos);
+                        codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos);
                 listaEventos.add(evento);
             }
 
@@ -75,6 +75,13 @@ public class EventosDAO {
         return listaEventos;
     }
 
+    /**
+     * Obtiene un evento segun el codigo identificador proporcionado
+     *
+     * @param codigoEventoRecibido Codigo identificador del evento a buscar
+     * @return Objeto Evento con los datos del evento con el codigo
+     * identificador proporcionado
+     */
     public Eventos consultarEventoPorID(Integer codigoEventoRecibido) {
         String codigoSQL = """
                            SELECT codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos
@@ -92,12 +99,16 @@ public class EventosDAO {
             ResultSet resultadosConsulta = comando.executeQuery();
 
             Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
-            Integer nombre = resultadosConsulta.getInt("nombre");
-            Integer descripcion = resultadosConsulta.getInt("descripcion");
-            Integer fechaHora = resultadosConsulta.getInt("fechaHora");
-            Integer estado = resultadosConsulta.getInt("estado");
-            Integer ciudad = resultadosConsulta.getInt("ciudad");
+            String nombre = resultadosConsulta.getString("nombre");
+            String descripcion = resultadosConsulta.getString("descripcion");
+            Date fechaHora = resultadosConsulta.getTimestamp("fechaHora");
+            String estado = resultadosConsulta.getString("estado");
+            String ciudad = resultadosConsulta.getString("ciudad");
             Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
+
+            Eventos evento = new Eventos(codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos);
+
+            return evento;
         } catch (SQLException ex) {
             System.err.println("Ha ocurrido un error al consultar el evento por id: " + ex);
         }
