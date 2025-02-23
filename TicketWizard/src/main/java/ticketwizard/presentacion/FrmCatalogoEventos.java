@@ -7,7 +7,8 @@ package ticketwizard.presentacion;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import ticketwizard.control.ControlEventos;
+import ticketwizard.control.ControlInicio;
+import ticketwizard.dtos.PersonasDTO;
 import ticketwizard.entidades.Eventos;
 
 /**
@@ -15,16 +16,22 @@ import ticketwizard.entidades.Eventos;
  *
  * @author PC
  */
-public class CatalogoEventos extends javax.swing.JFrame {
+public class FrmCatalogoEventos extends javax.swing.JFrame {
 
-    private final ControlEventos control;
+    private final ControlInicio control;
+    private final PersonasDTO personasDTO;
 
     /**
-     * Constructor que inicializa los datos del Frame
+     * Constructor que inicializa los atributos del frame al valor de sus
+     * parametros
+     *
+     * @param control Clase control
+     * @param personasDTO Perfil de la persona que inica sesion
      */
-    public CatalogoEventos(ControlEventos control) {
+    public FrmCatalogoEventos(ControlInicio control, PersonasDTO personasDTO) {
         initComponents();
         this.control = control;
+        this.personasDTO = personasDTO;
         llenarTablaEventos();
     }
 
@@ -64,6 +71,7 @@ public class CatalogoEventos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblEventos.setModel(new javax.swing.table.DefaultTableModel(

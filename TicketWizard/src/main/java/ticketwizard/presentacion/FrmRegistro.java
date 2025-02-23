@@ -7,6 +7,8 @@ package ticketwizard.presentacion;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
 import ticketwizard.entidades.Personas;
 import ticketwizard.persistencia.ConexionBD;
@@ -19,12 +21,14 @@ import ticketwizard.persistencia.PersonasDAO;
 public class FrmRegistro extends javax.swing.JFrame {
 
     ConexionBD conexionBD = new ConexionBD();
+    private final ControlInicio control;
 
     /**
      * Creates new form FrmRegistro
      */
-    public FrmRegistro() {
+    public FrmRegistro(ControlInicio control) {
         initComponents();
+        this.control = control;
     }
 
     /**
@@ -43,18 +47,26 @@ public class FrmRegistro extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellidoMaterno = new javax.swing.JTextField();
         txtApellidoPaterno = new javax.swing.JTextField();
+        lblFormato = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JLabel();
         bgRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 260, 30));
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 260, 30));
         getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 260, 30));
-        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 160, 30));
+        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 160, 30));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 260, 30));
         getContentPane().add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 160, 30));
         getContentPane().add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 160, 30));
+
+        lblFormato.setBackground(new java.awt.Color(0, 0, 0));
+        lblFormato.setForeground(new java.awt.Color(0, 0, 0));
+        lblFormato.setText("dd/mm/aaaa");
+        getContentPane().add(lblFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, -1));
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnRegistrar.png"))); // NOI18N
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -69,6 +81,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         getContentPane().add(bgRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
@@ -97,6 +110,12 @@ public class FrmRegistro extends javax.swing.JFrame {
             PersonasDAO personasDAO = new PersonasDAO(conexionBD);
 
             personasDAO.agregarPersona(personaDTO);
+
+            JOptionPane.showMessageDialog(this, "Se ha registrado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+
+            FrmInicioSesion frmInicioSesion = new FrmInicioSesion(control);
+            frmInicioSesion.setVisible(true);
+            this.dispose();
         } catch (ParseException ex) {
             System.err.println("Ocurrio un error al registrar el usuario: " + ex);
         }
@@ -107,41 +126,42 @@ public class FrmRegistro extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmRegistro().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FrmRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FrmRegistro().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgRegistro;
     private javax.swing.JLabel btnRegistrar;
+    private javax.swing.JLabel lblFormato;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
     private javax.swing.JTextField txtContrasenia;

@@ -8,25 +8,26 @@ import java.util.List;
 import ticketwizard.entidades.Eventos;
 import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.EventosDAO;
-import ticketwizard.presentacion.CatalogoEventos;
+import ticketwizard.presentacion.FrmCatalogoEventos;
+import ticketwizard.presentacion.FrmInicioSesion;
 
 /**
  * Clase control que establece los metodos para mostrar los Frms
  *
  * @author PC
  */
-public class ControlEventos {
+public class ControlInicio {
 
     private ConexionBD conexionBD = new ConexionBD();
     private EventosDAO eventosDAO = new EventosDAO(conexionBD);
-    private CatalogoEventos frmCatalogoEventos;
+    private FrmInicioSesion frmInicioSesion;
 
     /**
      * Metodo que inicia el caso de uso para mostrar el catalogo de eventos
      */
     public void iniciarCasoUso() {
-        this.frmCatalogoEventos = new CatalogoEventos(this);
-        this.frmCatalogoEventos.setVisible(true);
+        this.frmInicioSesion = new FrmInicioSesion(this);
+        this.frmInicioSesion.setVisible(true);
     }
 
     /**

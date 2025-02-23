@@ -4,7 +4,9 @@
  */
 package ticketwizard.presentacion;
 
-import javax.swing.JOptionPane;
+import ticketwizard.control.ControlInicio;
+import ticketwizard.dtos.PersonasDTO;
+import ticketwizard.entidades.Personas;
 import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.PersonasDAO;
 
@@ -15,12 +17,17 @@ import ticketwizard.persistencia.PersonasDAO;
 public class FrmInicioSesion extends javax.swing.JFrame {
 
     ConexionBD conexionBD = new ConexionBD();
+    private final ControlInicio control;
 
     /**
-     * Creates new form FrmInicioSesion
+     * Contstructor que inicializa los atributos de la clase con el valor de sus
+     * parametros
+     *
+     * @param control Clase control
      */
-    public FrmInicioSesion() {
+    public FrmInicioSesion(ControlInicio control) {
         initComponents();
+        this.control = control;
     }
 
     /**
@@ -32,98 +39,127 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblInicioSesion = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         txtContrasenia = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JLabel();
+        btnRegistrarse = new javax.swing.JLabel();
+        btnClose = new javax.swing.JPanel();
+        bgLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(600, 500));
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(950, 750));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(950, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 260, 30));
+        getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 260, 30));
 
-        lblInicioSesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblInicioSesion.setText("Inicio Sesion");
-        getContentPane().add(lblInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 139, 57));
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 200, 40));
-        getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 200, 40));
-
-        jLabel1.setText("Correo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
-
-        jLabel2.setText("Contrasenia");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
-
-        jButton1.setText("Iniciar Sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnLogin.png"))); // NOI18N
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 98, 40));
+
+        btnRegistrarse.setForeground(new java.awt.Color(51, 51, 51));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, -1, -1));
+
+        btnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClose.setOpaque(false);
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCloseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 20, 20));
+
+        bgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgLogin.png"))); // NOI18N
+        getContentPane().add(bgLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PersonasDAO persona = new PersonasDAO(conexionBD);
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        try {
+            PersonasDAO personaDAO = new PersonasDAO(conexionBD);
+//            personaDAO.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText());
 
-        persona.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText());
+            Personas persona = personaDAO.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText());
 
-//        try {
-//            if (persona.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText()).getCodigoPersona() != null) {
-//                JOptionPane.showMessageDialog(this, "Se inicio sesion correctamente", "Aprobado", JOptionPane.INFORMATION_MESSAGE);
-//            }
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(this, "No se ha podido iniciar sesion", "Denegado", JOptionPane.ERROR_MESSAGE);
-//        }
+            PersonasDTO personaDTO = new PersonasDTO(persona.getNombre(),
+                    persona.getApellidoPaterno(), persona.getApellidoMaterno(),
+                    persona.getCorreoElectronico(), persona.getContrasenia(),
+                    persona.getFechaNacimiento(), persona.getDireccion());
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+            FrmCatalogoEventos frmCatalogoEventos = new FrmCatalogoEventos(control, personaDTO);
+            frmCatalogoEventos.setVisible(true);
+            this.dispose();
+
+        } catch (Exception ex) {
+            System.err.println("Ha ocurrido un error inesperado: " + ex);
+        }
+    }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCloseMouseClicked
+
+    private void btnRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseClicked
+        FrmRegistro frmRegistro = new FrmRegistro(control);
+        frmRegistro.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistrarseMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmInicioSesion().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FrmInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FrmInicioSesion().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblInicioSesion;
+    private javax.swing.JLabel bgLogin;
+    private javax.swing.JPanel btnClose;
+    private javax.swing.JLabel btnLogin;
+    private javax.swing.JLabel btnRegistrarse;
     private javax.swing.JPasswordField txtContrasenia;
     private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables

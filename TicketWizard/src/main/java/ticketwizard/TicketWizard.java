@@ -4,7 +4,7 @@
 package ticketwizard;
 
 import java.util.List;
-import ticketwizard.control.ControlEventos;
+import ticketwizard.control.ControlInicio;
 import ticketwizard.entidades.Eventos;
 import ticketwizard.entidades.Personas;
 import ticketwizard.entidades.Recintos;
@@ -40,7 +40,7 @@ public class TicketWizard {
 //        System.out.println("Persona Inicia Sesion");
 //        System.out.println(personasDAO.iniciarSesion("sebas@gmail.com", "sebas123").toString());
 
-        ControlEventos control = new ControlEventos();
+        ControlInicio control = new ControlInicio();
         control.iniciarCasoUso();
 
     }
