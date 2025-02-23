@@ -1,4 +1,5 @@
 ticketwizard\entidades\Personas.class
+ticketwizard\presentacion\FrmMiPerfilDP.class
 ticketwizard\dtos\RecintosDTO.class
 ticketwizard\presentacion\FrmCatalogoEventos$1.class
 ticketwizard\presentacion\FrmInicioSesion$2.class
@@ -13,6 +14,7 @@ ticketwizard\presentacion\FrmInicioSesion.class
 ticketwizard\dtos\EventosDTO.class
 ticketwizard\presentacion\FrmInicioSesion$1.class
 ticketwizard\presentacion\FrmCatalogoEventos$5.class
+ticketwizard\presentacion\FrmMiPerfilDP$1.class
 ticketwizard\control\ControlInicio.class
 ticketwizard\persistencia\RecintosDAO.class
 ticketwizard\dtos\PersonasDTO.class

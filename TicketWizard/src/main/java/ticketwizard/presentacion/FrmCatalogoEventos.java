@@ -138,7 +138,9 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnMiPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMiPerfilMouseClicked
-        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+        FrmMiPerfilDP frmMiPerfilDP = new FrmMiPerfilDP(control, personasDTO);
+        frmMiPerfilDP.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnMiPerfilMouseClicked
 
     private void btnMisBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisBoletosMouseClicked

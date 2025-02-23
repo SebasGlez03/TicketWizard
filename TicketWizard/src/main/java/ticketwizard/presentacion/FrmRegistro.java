@@ -45,7 +45,9 @@ public class FrmRegistro extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtNumeroCasa = new javax.swing.JTextField();
         txtApellidoMaterno = new javax.swing.JTextField();
+        txtColonia = new javax.swing.JTextField();
         txtApellidoPaterno = new javax.swing.JTextField();
         lblFormato = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JLabel();
@@ -57,16 +59,18 @@ public class FrmRegistro extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 260, 30));
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 260, 30));
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 260, 30));
-        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 160, 30));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 260, 30));
+        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 160, 30));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 260, 30));
+        getContentPane().add(txtNumeroCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 160, 30));
         getContentPane().add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 160, 30));
+        getContentPane().add(txtColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 160, 30));
         getContentPane().add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 160, 30));
 
         lblFormato.setBackground(new java.awt.Color(0, 0, 0));
         lblFormato.setForeground(new java.awt.Color(0, 0, 0));
         lblFormato.setText("dd/mm/aaaa");
-        getContentPane().add(lblFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, -1));
+        getContentPane().add(lblFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, -1, -1));
 
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnRegistrar.png"))); // NOI18N
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -164,10 +168,12 @@ public class FrmRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lblFormato;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
+    private javax.swing.JTextField txtColonia;
     private javax.swing.JTextField txtContrasenia;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumeroCasa;
     // End of variables declaration//GEN-END:variables
 }
