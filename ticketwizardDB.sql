@@ -14,7 +14,7 @@ create table personas(
     direccion varchar(126)  generated always as(concat(calle, " ", colonia, " ", numero)) stored not null,
     contrasenia varchar(32) not null,
     correoElectronico varchar(100) not null unique,
-    saldo decimal(10, 2) not null,
+    saldo decimal(10, 2) not null default 0.00,
     fechaNacimiento date not null,
     edad int not null 	
 );
