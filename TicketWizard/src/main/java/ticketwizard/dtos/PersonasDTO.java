@@ -17,6 +17,7 @@ public class PersonasDTO {
     String apellidoPaterno;
     String apellidoMaterno;
     String correoElectronico;
+    String contrasenia;
     double saldo;
     Date fechaNacimiento;
     String direccion;
@@ -29,16 +30,40 @@ public class PersonasDTO {
      * @param apellidoPaterno Apellido paterno de la persona
      * @param apellidoMaterno Apellido materno de la persona
      * @param correoElectronico Correo electronico de la persona
+     * @param contrasenia Contrasenia de la persona
      * @param saldo Saldo de la persona
      * @param fechaNacimiento Fecha de nacimiento de la persona
      * @param direccion Direccion de la persona
      */
-    public PersonasDTO(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, double saldo, Date fechaNacimiento, String direccion) {
+    public PersonasDTO(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String direccion) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.correoElectronico = correoElectronico;
+        this.contrasenia = contrasenia;
         this.saldo = saldo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.direccion = direccion;
+    }
+
+    /**
+     * Constructor que inicializa todos los atributos de la clase con el valor
+     * de sus parametros a excepcion del saldo
+     *
+     * @param nombre Nombre de la persona
+     * @param apellidoPaterno Apellido paterno de la persona
+     * @param apellidoMaterno Apellido materno de la persona
+     * @param correoElectronico Correo electronico de la persona
+     * @param contrasenia Contrasenia de la persona
+     * @param fechaNacimiento Fecha de nacimiento de la persona
+     * @param direccion Direccion de la persona
+     */
+    public PersonasDTO(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, String direccion) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.correoElectronico = correoElectronico;
+        this.contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
     }
@@ -77,6 +102,15 @@ public class PersonasDTO {
      */
     public String getCorreoElectronico() {
         return correoElectronico;
+    }
+
+    /**
+     * Obtiene la contrasenia de la persona
+     *
+     * @return Contrasenia de la persona
+     */
+    public String getContrasenia() {
+        return contrasenia;
     }
 
     /**

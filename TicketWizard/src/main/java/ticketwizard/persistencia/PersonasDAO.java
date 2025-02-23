@@ -4,6 +4,9 @@
  */
 package ticketwizard.persistencia;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +15,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import ticketwizard.dtos.PersonasDTO;
 import ticketwizard.entidades.Personas;
 
 /**
@@ -78,6 +82,44 @@ public class PersonasDAO {
     }
 
     /**
+     * Metodo que agrega una nueva persona a la base de datos
+     *
+     * @param personaDTO Objeto personaDTO con la persona a agregar a la base de
+     * datos
+     */
+    public void agregarPersona(PersonasDTO personaDTO) {
+        String codigoSQL = """
+                           INSERT INTO personas (nombre, apellidoPaterno, apellidoMaterno, correoElectronico, contrasenia, fechaNacimiento, direccion)
+                           VALUES(?, ?, ?, ?, ?, ?, ?);
+                           """;
+
+        try {
+            Connection conexion = conexionBD.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+            // Se encripta la contrasenia antes de almacenarla
+            String contraseniaEncriptada = encriptarContrasenia(personaDTO.getContrasenia());
+
+            // Se cambia el tipo de dato de la fecha a uno valido
+            java.sql.Date sqlFechaNacimiento = new java.sql.Date(personaDTO.getFechaNacimiento().getTime());
+
+            comando.setString(1, personaDTO.getNombre());
+            comando.setString(2, personaDTO.getApellidoPaterno());
+            comando.setString(3, personaDTO.getApellidoMaterno());
+            comando.setString(4, personaDTO.getCorreoElectronico());
+            comando.setString(5, contraseniaEncriptada);
+            comando.setDate(6, sqlFechaNacimiento);
+            comando.setString(7, personaDTO.getDireccion());
+
+            int filasAfectadas = comando.executeUpdate();
+            System.out.println("Se registro a la persona");
+            System.out.println("Filas afectadas: " + filasAfectadas);
+        } catch (SQLException | NoSuchAlgorithmException ex) {
+            System.err.println("Error al agregar usuario: " + ex);
+        }
+    }
+
+    /**
      * Metodo que se encarga de obtener una persona que exista en la base de
      * datos para verificar su existencia en el sistema
      *
@@ -98,15 +140,18 @@ public class PersonasDAO {
             Connection conexion = conexionBD.crearConexion();
 
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-            comando.setString(1, correo); // Pasamos el correo al PreparedStatement
+            comando.setString(1, correo); // Se pasa el el correo al PreparedStatement
 
             ResultSet resultadosConsulta = comando.executeQuery();
 
             if (resultadosConsulta.next()) { // Si existe el usuario con ese correo
                 String contraseniaBD = resultadosConsulta.getString("contrasenia");
 
-                // Comparamos la contraseña recibida con la almacenada en la base de datos
-                if (contraseniaBD.equals(contrasenia)) {
+                // Se encripta la contrasenia ingresada y se compara con la almacenada
+                String contraseniaEncriptadaIngresada = encriptarContrasenia(contrasenia);
+
+                // Se compara la contraseña recibida con la almacenada en la base de datos
+                if (contraseniaBD.equals(contraseniaEncriptadaIngresada)) {
                     Integer codigoPersona = resultadosConsulta.getInt("codigoPersona");
                     String nombre = resultadosConsulta.getString("nombre");
                     String apellidoMaterno = resultadosConsulta.getString("apellidoMaterno");
@@ -126,11 +171,38 @@ public class PersonasDAO {
                 System.out.println("Correo no registrado.");
             }
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NoSuchAlgorithmException ex) {
             System.err.println("Error al iniciar sesión: " + ex);
         }
 
         return null; // Devuelve null si no se encontró el usuario o la contraseña es incorrecta
+    }
+
+    /**
+     * Metodo para encriptar la contrasenia utilizando SHA-256
+     *
+     * @param contrasenia Contrasenia a encriptar
+     * @return Regresa la contrasenia encriptada (o hasheada)
+     * @throws NoSuchAlgorithmException
+     */
+    private static String encriptarContrasenia(String contrasenia) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256"); // Se usa el algorimto SHA-256
+        byte[] hashBytes = digest.digest(contrasenia.getBytes(StandardCharsets.UTF_8)); // Realiza el hash
+        return bytesAHex(hashBytes);
+    }
+
+    /**
+     * Metodo que convierte un arreglo de bytes a una cadena hexadecimal
+     *
+     * @param bytes Arreglo de bytes a convertir
+     * @return Cadena de Hexadecimal
+     */
+    private static String bytesAHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 
 }

@@ -31,7 +31,7 @@ public class Personas {
     }
 
     /**
-     * Clase que inicializa los atributos de la clase con el valor de sus
+     * Constructor que inicializa los atributos de la clase con el valor de sus
      * parametros a excepcion del codigo de identificacion
      *
      * @param nombre Nombre de la persona
@@ -50,6 +50,29 @@ public class Personas {
         this.correoElectronico = correoElectronico;
         this.contrasenia = contrasenia;
         this.saldo = saldo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.direccion = direccion;
+    }
+
+    /**
+     * Constructor que inicializa los atributos de la clase con el valor de sus
+     * parametros a excepcion del codigo de identificacion y el saldo de la
+     * persona.
+     *
+     * @param nombre Nombre de la persona
+     * @param apellidoPaterno Apellido paterno de la persona
+     * @param apellidoMaterno Apellido materno de la persona
+     * @param correoElectronico Correo electronico de la persona
+     * @param contrasenia Contrasenia de la persona
+     * @param fechaNacimiento Fecha de nacimiento de la persona
+     * @param direccion Direccion de la persona
+     */
+    public Personas(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, String direccion) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.correoElectronico = correoElectronico;
+        this.contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
     }

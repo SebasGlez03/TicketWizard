@@ -4,11 +4,21 @@
  */
 package ticketwizard.presentacion;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import ticketwizard.dtos.PersonasDTO;
+import ticketwizard.entidades.Personas;
+import ticketwizard.persistencia.ConexionBD;
+import ticketwizard.persistencia.PersonasDAO;
+
 /**
  *
  * @author PC
  */
 public class FrmRegistro extends javax.swing.JFrame {
+
+    ConexionBD conexionBD = new ConexionBD();
 
     /**
      * Creates new form FrmRegistro
@@ -26,21 +36,73 @@ public class FrmRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        txtContrasenia = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtFechaNacimiento = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellidoMaterno = new javax.swing.JTextField();
+        txtApellidoPaterno = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JLabel();
+        bgRegistro = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 260, 30));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 260, 30));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 260, 30));
+        getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 160, 30));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 260, 30));
+        getContentPane().add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 160, 30));
+        getContentPane().add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 160, 30));
+
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnRegistrar.png"))); // NOI18N
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 98, 40));
+
+        bgRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgRegistro.png"))); // NOI18N
+        getContentPane().add(bgRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false); // Evita fechas invalidas
+
+        try {
+            String nombre = txtNombre.getText();
+            String apellidoPaterno = txtApellidoPaterno.getText();
+            String apellidoMaterno = txtApellidoMaterno.getText();
+            String direccion = txtDireccion.getText();
+            Date fechaNacimiento = dateFormat.parse(txtFechaNacimiento.getText());
+            String correo = txtCorreo.getText();
+            String contrasenia = txtContrasenia.getText();
+
+            Personas persona = new Personas(nombre, apellidoPaterno,
+                    apellidoMaterno, correo, contrasenia,
+                    fechaNacimiento, direccion);
+
+            PersonasDTO personaDTO = new PersonasDTO(persona.getNombre(),
+                    persona.getApellidoPaterno(), persona.getApellidoMaterno(),
+                    persona.getCorreoElectronico(), persona.getContrasenia(),
+                    persona.getFechaNacimiento(), persona.getDireccion());
+
+            PersonasDAO personasDAO = new PersonasDAO(conexionBD);
+
+            personasDAO.agregarPersona(personaDTO);
+        } catch (ParseException ex) {
+            System.err.println("Ocurrio un error al registrar el usuario: " + ex);
+        }
+
+
+    }//GEN-LAST:event_btnRegistrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +140,14 @@ public class FrmRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgRegistro;
+    private javax.swing.JLabel btnRegistrar;
+    private javax.swing.JTextField txtApellidoMaterno;
+    private javax.swing.JTextField txtApellidoPaterno;
+    private javax.swing.JTextField txtContrasenia;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtFechaNacimiento;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
