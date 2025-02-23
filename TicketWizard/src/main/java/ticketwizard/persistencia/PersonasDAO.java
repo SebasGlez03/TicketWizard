@@ -44,7 +44,7 @@ public class PersonasDAO {
      */
     public List<Personas> consultarPersonas() {
         String codigoSQL = """
-                           SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, calle, colonia, numeroCasa
+                           SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, calle, colonia, numero
                            FROM personas;
                            """;
 
@@ -71,11 +71,11 @@ public class PersonasDAO {
                 Date fechaNacimiento = resultadosConsulta.getDate("fechaNacimiento");
                 String calle = resultadosConsulta.getString("calle");
                 String colonia = resultadosConsulta.getString("colonia");
-                String numeroCasa = resultadosConsulta.getString("numeroCasa");
+                String numero = resultadosConsulta.getString("numero");
                 Personas persona = new Personas(codigoPersona, nombre,
                         apellidoPaterno, apellidoMaterno, correoElectronico,
                         contrasenia, saldo, fechaNacimiento, calle, colonia,
-                        numeroCasa);
+                        numero);
                 listaPersonas.add(persona);
             }
 
@@ -93,7 +93,7 @@ public class PersonasDAO {
      */
     public void agregarPersona(PersonasDTO personaDTO) {
         String codigoSQL = """
-                           INSERT INTO personas(nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, fechaNacimiento, calle, colonia, numeroCasa)
+                           INSERT INTO personas(nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, fechaNacimiento, calle, colonia, numero)
                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
                            """;
 
@@ -136,7 +136,7 @@ public class PersonasDAO {
      */
     public Personas iniciarSesion(String correo, String contrasenia) {
         String codigoSQL = """
-                       SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, calle, colonia, numeroCasa
+                       SELECT codigoPersona, nombre, apellidoMaterno, apellidoPaterno, correoElectronico, contrasenia, saldo, fechaNacimiento, calle, colonia, numero
                        FROM personas
                        WHERE correoElectronico = ?;
                        """;
@@ -167,11 +167,11 @@ public class PersonasDAO {
                     Date fechaNacimiento = resultadosConsulta.getDate("fechaNacimiento");
                     String calle = resultadosConsulta.getString("calle");
                     String colonia = resultadosConsulta.getString("colonia");
-                    String numeroCasa = resultadosConsulta.getString("numeroCasa");
+                    String numero = resultadosConsulta.getString("numero");
 
                     return new Personas(codigoPersona, nombre, apellidoPaterno,
                             apellidoMaterno, correoElectronico, contraseniaBD,
-                            saldo, fechaNacimiento, calle, colonia, numeroCasa);
+                            saldo, fechaNacimiento, calle, colonia, numero);
                 } else {
                     JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Contraseña incorrecta.");

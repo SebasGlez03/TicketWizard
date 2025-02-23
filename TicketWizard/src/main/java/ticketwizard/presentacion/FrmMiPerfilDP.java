@@ -172,7 +172,9 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarMouseClicked
 
     private void btnSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaldoMouseClicked
-        // TODO add your handling code here:
+        FrmMiPerfilSaldo frmMiPerfilSaldo = new FrmMiPerfilSaldo(control, personasDTO);
+        frmMiPerfilSaldo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSaldoMouseClicked
 
 //    /**

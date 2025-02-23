@@ -4,8 +4,10 @@ ticketwizard\dtos\RecintosDTO.class
 ticketwizard\presentacion\FrmCatalogoEventos$1.class
 ticketwizard\presentacion\FrmInicioSesion$2.class
 ticketwizard\persistencia\PersonasDAO.class
+ticketwizard\presentacion\FrmMiPerfilSaldo$1.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\presentacion\FrmRegistro.class
+ticketwizard\presentacion\FrmMiPerfilSaldo$3.class
 ticketwizard\presentacion\FrmMiPerfilDP$2.class
 ticketwizard\presentacion\FrmCatalogoEventos$3.class
 ticketwizard\presentacion\FrmInicioSesion$3.class
@@ -15,6 +17,7 @@ ticketwizard\presentacion\FrmInicioSesion.class
 ticketwizard\dtos\EventosDTO.class
 ticketwizard\presentacion\FrmInicioSesion$1.class
 ticketwizard\presentacion\FrmCatalogoEventos$5.class
+ticketwizard\presentacion\FrmMiPerfilSaldo$2.class
 ticketwizard\presentacion\FrmMiPerfilDP$1.class
 ticketwizard\control\ControlInicio.class
 ticketwizard\persistencia\RecintosDAO.class
@@ -22,6 +25,8 @@ ticketwizard\dtos\PersonasDTO.class
 ticketwizard\entidades\Recintos.class
 ticketwizard\presentacion\FrmCatalogoEventos$4.class
 ticketwizard\presentacion\FrmRegistro$1.class
+ticketwizard\presentacion\FrmMiPerfilSaldo.class
 ticketwizard\TicketWizard.class
 ticketwizard\entidades\Eventos.class
 ticketwizard\presentacion\FrmCatalogoEventos.class
+ticketwizard\presentacion\FrmMiPerfilDP$3.class

@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConexionBD {
 
     // Informacion para conectarte a la bd
-    private final String cadenaConexion = "jdbc:mysql://localhost/test_ticketwizard";
+    private final String cadenaConexion = "jdbc:mysql://localhost/ticketwizard";
     private final String usuario = "root";
     private final String contrasenia = "root";
 
