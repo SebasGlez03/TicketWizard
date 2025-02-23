@@ -41,7 +41,7 @@ public class FrmRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         txtContrasenia = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
+        txtCalle = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
@@ -58,7 +58,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 260, 30));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 260, 30));
+        getContentPane().add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 260, 30));
         getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 260, 30));
         getContentPane().add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 160, 30));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 260, 30));
@@ -97,19 +97,22 @@ public class FrmRegistro extends javax.swing.JFrame {
             String nombre = txtNombre.getText();
             String apellidoPaterno = txtApellidoPaterno.getText();
             String apellidoMaterno = txtApellidoMaterno.getText();
-            String direccion = txtDireccion.getText();
+            String calle = txtCalle.getText();
+            String colonia = txtColonia.getText();
+            String numeroCasa = txtNumeroCasa.getText();
             Date fechaNacimiento = dateFormat.parse(txtFechaNacimiento.getText());
             String correo = txtCorreo.getText();
             String contrasenia = txtContrasenia.getText();
 
             Personas persona = new Personas(nombre, apellidoPaterno,
                     apellidoMaterno, correo, contrasenia,
-                    fechaNacimiento, direccion);
+                    fechaNacimiento, calle, colonia, numeroCasa);
 
             PersonasDTO personaDTO = new PersonasDTO(persona.getNombre(),
                     persona.getApellidoPaterno(), persona.getApellidoMaterno(),
                     persona.getCorreoElectronico(), persona.getContrasenia(),
-                    persona.getFechaNacimiento(), persona.getDireccion());
+                    persona.getFechaNacimiento(), persona.getCalle(),
+                    persona.getColonia(), persona.getNumeroCasa());
 
             PersonasDAO personasDAO = new PersonasDAO(conexionBD);
 
@@ -168,10 +171,10 @@ public class FrmRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lblFormato;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
+    private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtColonia;
     private javax.swing.JTextField txtContrasenia;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroCasa;

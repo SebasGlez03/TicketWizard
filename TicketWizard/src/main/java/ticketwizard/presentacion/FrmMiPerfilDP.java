@@ -41,6 +41,9 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         txtNombre.setText(personasDTO.getNombre());
         txtApellidoPaterno.setText(personasDTO.getApellidoPaterno());
         txtApellidoMaterno.setText(personasDTO.getApellidoMaterno());
+        txtCalle.setText(personasDTO.getCalle());
+        txtColonia.setText(personasDTO.getColonia());
+        txtNumeroCasa.setText(personasDTO.getNumeroCasa());
     }
 
     /**
@@ -60,6 +63,7 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         txtColonia = new javax.swing.JTextField();
         btnEventos = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JPanel();
+        btnSaldo = new javax.swing.JPanel();
         bgMiPerfilDP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,11 +72,23 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(950, 750));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtApellidoMaterno.setFocusable(false);
         getContentPane().add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 140, -1));
+
+        txtCalle.setFocusable(false);
         getContentPane().add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 150, -1));
+
+        txtNumeroCasa.setFocusable(false);
         getContentPane().add(txtNumeroCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 140, -1));
+
+        txtNombre.setFocusable(false);
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 150, -1));
+
+        txtApellidoPaterno.setFocusable(false);
         getContentPane().add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 140, -1));
+
+        txtColonia.setFocusable(false);
         getContentPane().add(txtColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 140, -1));
 
         btnEventos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -117,6 +133,27 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
 
         getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 20, 20));
 
+        btnSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSaldo.setOpaque(false);
+        btnSaldo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaldoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnSaldoLayout = new javax.swing.GroupLayout(btnSaldo);
+        btnSaldo.setLayout(btnSaldoLayout);
+        btnSaldoLayout.setHorizontalGroup(
+            btnSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+        btnSaldoLayout.setVerticalGroup(
+            btnSaldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(btnSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 90, 40));
+
         bgMiPerfilDP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgMiPerfilDP.png"))); // NOI18N
         getContentPane().add(bgMiPerfilDP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
@@ -133,6 +170,10 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
         this.dispose();
     }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaldoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaldoMouseClicked
 
 //    /**
 //     * @param args the command line arguments
@@ -173,6 +214,7 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
     private javax.swing.JLabel bgMiPerfilDP;
     private javax.swing.JPanel btnCerrar;
     private javax.swing.JPanel btnEventos;
+    private javax.swing.JPanel btnSaldo;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
     private javax.swing.JTextField txtCalle;

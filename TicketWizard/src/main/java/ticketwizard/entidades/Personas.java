@@ -22,7 +22,9 @@ public class Personas {
     String contrasenia;
     double saldo;
     Date fechaNacimiento;
-    String direccion;
+    String calle;
+    String colonia;
+    String numeroCasa;
 
     /**
      * Constructor por omision
@@ -41,9 +43,11 @@ public class Personas {
      * @param contrasenia Contrasenia de la persona
      * @param saldo Saldo de la persona
      * @param fechaNacimiento Fecha de nacimiento de la persona
-     * @param direccion Direccion de la persona
+     * @param calle Calle de la direccion de la persona
+     * @param colonia Colonia de la direccion de la persona
+     * @param numeroCasa Numero de casa de la direccion de la persona
      */
-    public Personas(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String direccion) {
+    public Personas(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String calle, String colonia, String numeroCasa) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
@@ -51,13 +55,15 @@ public class Personas {
         this.contrasenia = contrasenia;
         this.saldo = saldo;
         this.fechaNacimiento = fechaNacimiento;
-        this.direccion = direccion;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.numeroCasa = numeroCasa;
     }
 
     /**
      * Constructor que inicializa los atributos de la clase con el valor de sus
-     * parametros a excepcion del codigo de identificacion y el saldo de la
-     * persona.
+     * parametros a excepcion del codigo de ifentificacion y el saldo de la
+     * persona
      *
      * @param nombre Nombre de la persona
      * @param apellidoPaterno Apellido paterno de la persona
@@ -65,16 +71,20 @@ public class Personas {
      * @param correoElectronico Correo electronico de la persona
      * @param contrasenia Contrasenia de la persona
      * @param fechaNacimiento Fecha de nacimiento de la persona
-     * @param direccion Direccion de la persona
+     * @param calle Calle de la direccion de la persona
+     * @param colonia Colonia de la direccion de la persona
+     * @param numeroCasa Numero de casa de la direccion de la persona
      */
-    public Personas(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, String direccion) {
+    public Personas(String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, String calle, String colonia, String numeroCasa) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.correoElectronico = correoElectronico;
         this.contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
-        this.direccion = direccion;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.numeroCasa = numeroCasa;
     }
 
     /**
@@ -89,9 +99,11 @@ public class Personas {
      * @param contrasenia Contrasenia de la persona
      * @param saldo Saldo de la persona
      * @param fechaNacimiento Fecha de nacimiento de la persona
-     * @param direccion Direccion de la persona
+     * @param calle Calle de la direccion de la persona
+     * @param colonia Colonia de la direccion de la persona
+     * @param numeroCasa Numero de casa de la direccion de la persona
      */
-    public Personas(Integer codigoPersona, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String direccion) {
+    public Personas(Integer codigoPersona, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String calle, String colonia, String numeroCasa) {
         this.codigoPersona = codigoPersona;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -100,7 +112,9 @@ public class Personas {
         this.contrasenia = contrasenia;
         this.saldo = saldo;
         this.fechaNacimiento = fechaNacimiento;
-        this.direccion = direccion;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.numeroCasa = numeroCasa;
     }
 
     /**
@@ -248,21 +262,58 @@ public class Personas {
     }
 
     /**
-     * Obtiene la direccion de la persona
+     * Obtiene la calle de la direccion de la persona
      *
-     * @return Direccion de la persona
+     * @return Calle de la direccion de la persona
      */
-    public String getDireccion() {
-        return direccion;
+    public String getCalle() {
+        return calle;
     }
 
     /**
-     * Establece la direccion de la persona
+     * Establece la calle de la direccion de la persona
      *
-     * @param direccion Direccion de la persona a establecer
+     * @param calle Calle de la direccion de la persona a establecer
      */
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    /**
+     * Obtiene la colonia de la direccion de la persona
+     *
+     * @return Colonia de la direccion de la persona
+     */
+    public String getColonia() {
+        return colonia;
+    }
+
+    /**
+     * Establece la colonia de la direccion de la persona
+     *
+     * @param colonia Colonia de la direccion de la persona a establecer
+     */
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    /**
+     * Obtiene el numero de casa de la direccion de la persona
+     *
+     * @return Numero de casa de la direccion de la persona
+     */
+    public String getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    /**
+     * Establece el numero de casa de la direccion de la persona
+     *
+     * @param numeroCasa Numero de casa de la direccion de la persona a
+     * establecer
+     */
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
     }
 
     /**
@@ -299,6 +350,7 @@ public class Personas {
         return Objects.equals(this.codigoPersona, other.codigoPersona);
     }
 
+
     /**
      * Metodo que convierte todos los atributos de la clase a un valor de tipo
      * String
@@ -307,7 +359,8 @@ public class Personas {
      */
     @Override
     public String toString() {
-        return "Personas{" + "codigoPersona=" + codigoPersona + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correoElectronico=" + correoElectronico + ", saldo=" + saldo + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion + '}';
+        return "Personas{" + "codigoPersona=" + codigoPersona + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correoElectronico=" + correoElectronico + ", contrasenia=" + contrasenia + ", saldo=" + saldo + ", fechaNacimiento=" + fechaNacimiento + ", calle=" + calle + ", colonia=" + colonia + ", numeroCasa=" + numeroCasa + '}';
     }
+    
 
 }

@@ -6,6 +6,7 @@ ticketwizard\presentacion\FrmInicioSesion$2.class
 ticketwizard\persistencia\PersonasDAO.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\presentacion\FrmRegistro.class
+ticketwizard\presentacion\FrmMiPerfilDP$2.class
 ticketwizard\presentacion\FrmCatalogoEventos$3.class
 ticketwizard\presentacion\FrmInicioSesion$3.class
 ticketwizard\persistencia\EventosDAO.class

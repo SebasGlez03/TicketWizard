@@ -99,7 +99,8 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             PersonasDTO personaDTO = new PersonasDTO(persona.getNombre(),
                     persona.getApellidoPaterno(), persona.getApellidoMaterno(),
                     persona.getCorreoElectronico(), persona.getContrasenia(),
-                    persona.getFechaNacimiento(), persona.getDireccion());
+                    persona.getFechaNacimiento(), persona.getCalle(),
+                    persona.getColonia(), persona.getNumeroCasa());
 
             FrmCatalogoEventos frmCatalogoEventos = new FrmCatalogoEventos(control, personaDTO);
             frmCatalogoEventos.setVisible(true);
