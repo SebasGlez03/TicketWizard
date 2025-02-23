@@ -7,11 +7,10 @@ import java.util.List;
 import ticketwizard.control.ControlInicio;
 import ticketwizard.entidades.Eventos;
 import ticketwizard.entidades.Personas;
-import ticketwizard.entidades.Recintos;
 import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.EventosDAO;
 import ticketwizard.persistencia.PersonasDAO;
-import ticketwizard.persistencia.RecintosDAO;
+
 
 /**
  *
