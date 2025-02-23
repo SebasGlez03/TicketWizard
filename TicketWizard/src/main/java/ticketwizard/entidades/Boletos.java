@@ -107,6 +107,7 @@ public class Boletos {
         return codigoBoleto;
     }
 
+
     /**
      * Establece el codigo identificador del boleto
      *
@@ -303,5 +304,4 @@ public class Boletos {
     public String toString() {
         return "Boletos{" + "codigoBoleto=" + codigoBoleto + ", fila=" + fila + ", asiento=" + asiento + ", codigoPersona=" + codigoPersona + ", codigoEvento=" + codigoEvento + ", numeroSerie=" + numeroSerie + ", costoOriginal=" + costoOriginal + ", costo=" + costo + ", estado=" + estado + '}';
     }
-
 }

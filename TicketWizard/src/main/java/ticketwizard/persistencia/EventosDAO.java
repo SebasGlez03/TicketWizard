@@ -40,7 +40,7 @@ public class EventosDAO {
      */
     public List<Eventos> consultarEventos() {
         String codigoSQL = """
-                           SELECT codigoEvento, nombre, descripcion, fechaHora, codigoRecinto
+                           SELECT codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos 
                            FROM eventos;
                            """;
 
@@ -61,9 +61,11 @@ public class EventosDAO {
                 String nombre = resultadosConsulta.getString("nombre");
                 String descripcion = resultadosConsulta.getString("descripcion");
                 Date fechaHora = resultadosConsulta.getDate("fechaHora");
-                Integer codigoRecinto = resultadosConsulta.getInt("codigoRecinto");
+                String estado = resultadosConsulta.getString("estado");
+                String ciudad = resultadosConsulta.getString("ciudad");
+                Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
                 Eventos evento = new Eventos(
-                        codigoEvento, nombre, descripcion, fechaHora, codigoRecinto);
+                        codigoEvento, nombre, descripcion, fechaHora, estado, ciudad,cantidadAsientos);
                 listaEventos.add(evento);
             }
 
