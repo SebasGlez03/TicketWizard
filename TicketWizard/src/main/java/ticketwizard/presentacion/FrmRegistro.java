@@ -49,6 +49,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         txtApellidoMaterno = new javax.swing.JTextField();
         txtColonia = new javax.swing.JTextField();
         txtApellidoPaterno = new javax.swing.JTextField();
+        btnCerrar = new javax.swing.JPanel();
         lblFormato = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JLabel();
         bgRegistro = new javax.swing.JLabel();
@@ -66,6 +67,27 @@ public class FrmRegistro extends javax.swing.JFrame {
         getContentPane().add(txtApellidoMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 160, 30));
         getContentPane().add(txtColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 160, 30));
         getContentPane().add(txtApellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 160, 30));
+
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.setOpaque(false);
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnCerrarLayout = new javax.swing.GroupLayout(btnCerrar);
+        btnCerrar.setLayout(btnCerrarLayout);
+        btnCerrarLayout.setHorizontalGroup(
+            btnCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+        btnCerrarLayout.setVerticalGroup(
+            btnCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 20, 20));
 
         lblFormato.setBackground(new java.awt.Color(0, 0, 0));
         lblFormato.setForeground(new java.awt.Color(0, 0, 0));
@@ -130,6 +152,10 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -164,6 +190,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgRegistro;
+    private javax.swing.JPanel btnCerrar;
     private javax.swing.JLabel btnRegistrar;
     private javax.swing.JLabel lblFormato;
     private javax.swing.JTextField txtApellidoMaterno;
