@@ -66,13 +66,13 @@ public class FrmBoletosUsuario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fila", "Asiento", "Evento", "NumSerie", "Costo Original", "Costo Actual", "Estado"
+                "Fila", "Asiento", "NumInterno", "CostoOriginal", "Estado", "CodigoTransaccion", "FechaHora", "TipoAdquisicion"
             }
         ));
         tblMisBoletos.setViewportView(jTable1);
