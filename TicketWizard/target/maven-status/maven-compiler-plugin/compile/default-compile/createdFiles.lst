@@ -4,6 +4,7 @@ ticketwizard\presentacion\FrmCatalogoEventos$1.class
 ticketwizard\persistencia\PersonasDAO.class
 ticketwizard\presentacion\FrmMiPerfilSaldo$1.class
 ticketwizard\presentacion\FrmRegistro.class
+ticketwizard\presentacion\FrmCambiarDatos$3.class
 ticketwizard\presentacion\FrmMiPerfilDP$2.class
 ticketwizard\entidades\Ventas.class
 ticketwizard\entidades\Boletos.class
@@ -12,10 +13,10 @@ ticketwizard\persistencia\EventosDAO.class
 ticketwizard\dtos\BoletosDTO.class
 ticketwizard\presentacion\FrmCatalogoEventos$2.class
 ticketwizard\presentacion\FrmInicioSesion.class
+ticketwizard\presentacion\FrmCambiarDatos$2.class
 ticketwizard\entidades\Transacciones.class
 ticketwizard\presentacion\FrmCatalogoEventos$5.class
 ticketwizard\presentacion\FrmAgregarSaldo$2.class
-ticketwizard\presentacion\FrmMiPerfilSaldo$4.class
 ticketwizard\control\ControlInicio.class
 ticketwizard\presentacion\FrmRegistro$1.class
 ticketwizard\presentacion\FrmAgregarSaldo.class
@@ -23,12 +24,15 @@ ticketwizard\presentacion\FrmMiPerfilSaldo.class
 ticketwizard\entidades\Eventos.class
 ticketwizard\presentacion\FrmCatalogoEventos.class
 ticketwizard\presentacion\FrmMiPerfilDP$3.class
+ticketwizard\presentacion\FrmCambiarDatos.class
 ticketwizard\presentacion\FrmInicioSesion$2.class
+ticketwizard\presentacion\FrmCambiarDatos$1.class
 ticketwizard\persistencia\BoletosDAO.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\presentacion\FrmMiPerfilSaldo$3.class
 ticketwizard\presentacion\FrmAgregarSaldo$1.class
 ticketwizard\presentacion\FrmCatalogoEventos$3.class
+ticketwizard\presentacion\FrmMiPerfilDP$4.class
 ticketwizard\dtos\EventosDTO.class
 ticketwizard\presentacion\FrmInicioSesion$1.class
 ticketwizard\presentacion\FrmMiPerfilSaldo$2.class

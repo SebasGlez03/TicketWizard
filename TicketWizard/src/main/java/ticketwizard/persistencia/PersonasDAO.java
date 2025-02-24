@@ -135,10 +135,6 @@ public class PersonasDAO {
                 return persona;
             }
 
-            conexion.close();
-            comando.close();
-            resultadosConsulta.close();
-
         } catch (SQLException ex) {
             System.err.println("Error al consultar personas por id: " + ex);
         } finally {
@@ -198,6 +194,56 @@ public class PersonasDAO {
             System.out.println("Filas afectadas: " + filasAfectadas);
         } catch (SQLException | NoSuchAlgorithmException ex) {
             System.err.println("Error al agregar usuario: " + ex);
+        }
+    }
+
+    /**
+     * Actualiza los datos de una persona mediante a el id de la persona
+     *
+     * @param idUsuario Codigo identificador de una persona
+     * @param personaDatos Datos de la persona a cambiar
+     */
+    public void actualizarPerosnaPorID(Integer idUsuario, Personas personaDatos) {
+        String codigoSQL = """
+                           UPDATE personas
+                           SET 
+                               nombre = ?,
+                               apellidoPaterno = ?,
+                               apellidoMaterno = ?,
+                               calle = ?,
+                               colonia = ?,
+                               numero = ?,
+                               fechaNacimiento = ?,
+                               correoElectronico = ?
+                           WHERE codigoPersona = ?;
+                           """;
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+
+        try {
+            conexion = conexionBD.crearConexion();
+            comando = conexion.prepareStatement(codigoSQL);
+
+            // Se cambia el tipo de dato de la fecha a uno valido
+            java.sql.Date sqlFechaNacimiento = new java.sql.Date(personaDatos.getFechaNacimiento().getTime());
+
+            comando.setString(1, personaDatos.getNombre());
+            comando.setString(2, personaDatos.getApellidoPaterno());
+            comando.setString(3, personaDatos.getApellidoMaterno());
+            comando.setString(4, personaDatos.getCalle());
+            comando.setString(5, personaDatos.getColonia());
+            comando.setString(6, personaDatos.getNumeroCasa());
+            comando.setDate(7, sqlFechaNacimiento);
+            comando.setString(8, personaDatos.getCorreoElectronico());
+            comando.setInt(9, idUsuario);
+
+            int filasAfectadas = comando.executeUpdate();
+            System.out.println("Se agregaron los nuevos datos a la persona");
+            System.out.println("Filas afectadas: " + filasAfectadas);
+
+        } catch (SQLException ex) {
+            System.err.println("Ha ocurrido un error al obtener los datos del usuario de la bd: " + ex);
         }
     }
 

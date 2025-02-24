@@ -6,6 +6,8 @@ package ticketwizard.presentacion;
 
 import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
+import ticketwizard.persistencia.ConexionBD;
+import ticketwizard.persistencia.PersonasDAO;
 
 /**
  *
@@ -13,6 +15,7 @@ import ticketwizard.dtos.PersonasDTO;
  */
 public class FrmMiPerfilDP extends javax.swing.JFrame {
 
+    ConexionBD conexionBD = new ConexionBD();
     private final ControlInicio control;
     private final PersonasDTO personasDTO;
 
@@ -31,6 +34,9 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
     }
 
     private void llenarInformacionPersonal() {
+        PersonasDAO personaConsultada = new PersonasDAO(conexionBD);
+        personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona());
+
         txtNombre.setEditable(false);
         txtApellidoPaterno.setEditable(false);
         txtApellidoMaterno.setEditable(false);
@@ -38,12 +44,12 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         txtColonia.setEditable(false);
         txtNumeroCasa.setEditable(false);
 
-        txtNombre.setText(personasDTO.getNombre());
-        txtApellidoPaterno.setText(personasDTO.getApellidoPaterno());
-        txtApellidoMaterno.setText(personasDTO.getApellidoMaterno());
-        txtCalle.setText(personasDTO.getCalle());
-        txtColonia.setText(personasDTO.getColonia());
-        txtNumeroCasa.setText(personasDTO.getNumeroCasa());
+        txtNombre.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getNombre());
+        txtApellidoPaterno.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getApellidoPaterno());
+        txtApellidoMaterno.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getApellidoMaterno());
+        txtCalle.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getCalle());
+        txtColonia.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getColonia());
+        txtNumeroCasa.setText(personaConsultada.consultarPersonaPorID(personasDTO.getCodigoPersona()).getNumeroCasa());
     }
 
     /**
@@ -61,6 +67,7 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellidoPaterno = new javax.swing.JTextField();
         txtColonia = new javax.swing.JTextField();
+        btnCambiarInfo = new javax.swing.JLabel();
         btnEventos = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JPanel();
         btnSaldo = new javax.swing.JPanel();
@@ -69,7 +76,6 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 750));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(950, 750));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -90,6 +96,15 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
 
         txtColonia.setFocusable(false);
         getContentPane().add(txtColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 140, -1));
+
+        btnCambiarInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnCambiarInfo.png"))); // NOI18N
+        btnCambiarInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCambiarInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCambiarInfoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnCambiarInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 98, 40));
 
         btnEventos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEventos.setOpaque(false);
@@ -177,6 +192,12 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSaldoMouseClicked
 
+    private void btnCambiarInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCambiarInfoMouseClicked
+        FrmCambiarDatos frmCambiarDatos = new FrmCambiarDatos(control, personasDTO);
+        frmCambiarDatos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCambiarInfoMouseClicked
+
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -211,6 +232,7 @@ public class FrmMiPerfilDP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgMiPerfilDP;
+    private javax.swing.JLabel btnCambiarInfo;
     private javax.swing.JPanel btnCerrar;
     private javax.swing.JPanel btnEventos;
     private javax.swing.JPanel btnSaldo;

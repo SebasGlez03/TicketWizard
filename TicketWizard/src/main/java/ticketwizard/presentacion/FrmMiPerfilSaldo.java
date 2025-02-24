@@ -14,7 +14,7 @@ import ticketwizard.persistencia.PersonasDAO;
  * @author PC
  */
 public class FrmMiPerfilSaldo extends javax.swing.JFrame {
-    
+
     ConexionBD conexionBD = new ConexionBD();
     private final ControlInicio control;
     private final PersonasDTO personasDTO;
@@ -32,7 +32,7 @@ public class FrmMiPerfilSaldo extends javax.swing.JFrame {
         this.personasDTO = personasDTO;
         mostrarSaldo();
     }
-    
+
     private void mostrarSaldo() {
         PersonasDAO personaSaldo = new PersonasDAO(conexionBD);
         lblSaldo.setText(Double.toString(personaSaldo.obtenerSaldoPorID(personasDTO.getCodigoPersona())));
