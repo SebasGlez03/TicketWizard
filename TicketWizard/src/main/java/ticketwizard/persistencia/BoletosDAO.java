@@ -422,4 +422,39 @@ public class BoletosDAO {
         
         return consultarBoleto(Boleto);
     }
+     
+     public Boletos BoletoEspera(int Boleto){
+        String codigoSQL = """
+                           update boletos set estado = "En espera"
+                           		where codigoBoleto =  ? ;
+                           """;
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, Boleto);
+            
+            comando.executeUpdate(codigoSQL);
+            
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+            
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return consultarBoleto(Boleto);
+    }
+     
+     
+     
+     
 }
