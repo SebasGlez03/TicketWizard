@@ -187,7 +187,7 @@ create procedure AgregarSaldo(
 in id_usuario int, in saldoAgregado  decimal(10,2)
 )
 begin 
-	update personas set saldo = saldo + saldoAgredado
+	update personas set saldo = saldo + saldoAgregado
 		where codigoPersona = id_usuario;
 end;
 //
@@ -321,4 +321,3 @@ call ComprarBoletos(6, 39);
 call ComprarBoletos(6, 40);
 call ComprarBoletos(6, 59);
 call ComprarBoletos(6, 60);
-

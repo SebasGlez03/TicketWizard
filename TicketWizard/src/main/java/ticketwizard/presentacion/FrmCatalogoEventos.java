@@ -6,12 +6,12 @@ package ticketwizard.presentacion;
 
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
 import ticketwizard.entidades.Eventos;
+import ticketwizard.persistencia.BoletosDAO;
+import ticketwizard.persistencia.ConexionBD;
 
 /**
  * Clase que muestra el catalogo de eventos
@@ -20,6 +20,7 @@ import ticketwizard.entidades.Eventos;
  */
 public class FrmCatalogoEventos extends javax.swing.JFrame {
 
+    ConexionBD conexionBD = new ConexionBD();
     private final ControlInicio control;
     private final PersonasDTO personasDTO;
 
@@ -192,7 +193,8 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEventosMouseClicked
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        // TODO add your handling code here:
+        BoletosDAO boletos = new BoletosDAO(conexionBD);
+        boletos.comprarBoleto(personasDTO.getCodigoPersona(), Integer.parseInt(txtCodigoCompra.getText()));
     }//GEN-LAST:event_btnComprarActionPerformed
 
 
