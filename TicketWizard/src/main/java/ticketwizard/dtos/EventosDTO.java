@@ -16,94 +16,82 @@ public class EventosDTO {
     private String nombre;
     private String descripcion;
     private Date fechaHora;
-    private Integer codigoRecinto;
+    private String estado;
+    private String ciudad;
+    private Integer cantidadAsientos;
 
     /**
-     * Constructor que inicializa los atributos de la clase al valor de sus
-     * parametros
+     * Constructor que inicializa todos los atributos de la clase al valor de
+     * sus parametros
      *
      * @param nombre Nombre del evento
      * @param descripcion Descripcion del evento
-     * @param fechaHora Fecha hora del evento
-     * @param codigoRecinto Codigo identificador del recinto
+     * @param fechaHora Fecha y hora del evento
+     * @param estado Estado de realizacion evento
+     * @param ciudad Ciudad de realizacion evento
+     * @param cantidadAsientos Cantidad de asientos del evento
      */
-    public EventosDTO(String nombre, String descripcion, Date fechaHora, Integer codigoRecinto) {
+    public EventosDTO(String nombre, String descripcion, Date fechaHora, String estado, String ciudad, Integer cantidadAsientos) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaHora = fechaHora;
-        this.codigoRecinto = codigoRecinto;
+        this.estado = estado;
+        this.ciudad = ciudad;
+        this.cantidadAsientos = cantidadAsientos;
     }
 
     /**
-     * Obtener nombre del evento
+     * Obtiene el nombre del evento
      *
-     * @return nombre del evento
+     * @return Nombre del evento
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * Establecer nombre del evento
+     * Obtiene la descripcion del evento
      *
-     * @param nombre nombre del evento a establecer
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * Obtener descripcion del evento
-     *
-     * @return valor de la descripcion del evento
+     * @return Descripcion del evento
      */
     public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * Establecer descripcion del evento
+     * Obtiene la fecha y hora de la realizacion del evento
      *
-     * @param descripcion descripcion del evento a establecer
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    /**
-     * Obtener fecha y hora del evento
-     *
-     * @return valor de la fecha y hora del evento
+     * @return Fecha y hora de la realizacion del evento
      */
     public Date getFechaHora() {
         return fechaHora;
     }
 
     /**
-     * Establecer fecha y hora del evento
+     * Obtiene el estado en donde se realiza el evento
      *
-     * @param fechaHora fecha y hora del evento a establecer
+     * @return Estado donde se realiza el evento
      */
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
+    public String getEstado() {
+        return estado;
     }
 
     /**
-     * Obtener codigo identificador del recinto
+     * Obtiene la ciudad en donde se realiza el evento
      *
-     * @return valor del codigo identificador del recinto
+     * @return Ciudad en donde se realiza el evento
      */
-    public Integer getCodigoRecinto() {
-        return codigoRecinto;
+    public String getCiudad() {
+        return ciudad;
     }
 
     /**
-     * Establecer codigo identificador del recinto
+     * Obtiene la calitdad de asientos de donde se realiza el evento
      *
-     * @param codigoRecinto codigo identificador del recinto a establecer
+     * @return Cantidad de asientos de donde se realiza el evento
      */
-    public void setCodigoRecinto(Integer codigoRecinto) {
-        this.codigoRecinto = codigoRecinto;
+    public Integer getCantidadAsientos() {
+        return cantidadAsientos;
     }
 
 }

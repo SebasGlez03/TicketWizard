@@ -134,6 +134,69 @@ public class Eventos {
     }
 
     /**
+     * Establece el codigo identificador del evento
+     *
+     * @param codigoEvento Codigo identificador del evento a establecer
+     */
+    public void setCodigoEvento(Integer codigoEvento) {
+        this.codigoEvento = codigoEvento;
+    }
+
+    /**
+     * Establece el nombre del evento
+     *
+     * @param nombre Nombre del evento a establecer
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Establece la descripcion del evento
+     *
+     * @param descripcion Descripcion del evento a establecer
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * Establece la fecha y la hora de cuando se realiza el evento
+     *
+     * @param fechaHora Fecha y hora de cuando se realiza el evento a establecer
+     */
+    public void setFechaHora(Date fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    /**
+     * Establece el estado en donde se realiza el evento
+     *
+     * @param estado Estado en donde se realiza el evento a establecer
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Establece la ciudad en donde se realiza el evento
+     *
+     * @param ciudad Ciudad en donde se realiza el evento a establecer
+     */
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    /**
+     * Establece la cantidad de asientos en el evento
+     *
+     * @param cantidadAsientos Cantidad de asientos en el evento a establecer
+     */
+    public void setCantidadAsientos(Integer cantidadAsientos) {
+        this.cantidadAsientos = cantidadAsientos;
+    }
+
+    /**
      * Metodo que obtiene el hascode en base al codigo identificador del evento
      *
      * @return hascode en base al identificador del evento obtenido
