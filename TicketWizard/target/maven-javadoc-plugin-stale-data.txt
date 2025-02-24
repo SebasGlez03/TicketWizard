@@ -1,0 +1,54 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/PC/.m2/repository/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar;C:/Users/PC/.m2/repository/com/google/protobuf/protobuf-java/3.25.1/protobuf-java-3.25.1.jar;C:/Users/PC/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE220/AbsoluteLayout-RELEASE220.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'21'
+-sourcepath
+'C:/Users/PC/Desktop/Cosas/Git Repositories/TicketWizard/TicketWizard/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/PC/Desktop/Cosas/Git Repositories/TicketWizard/TicketWizard/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'TicketWizard 1.0 API'
+-use
+-version
+-windowtitle
+'TicketWizard 1.0 API'
+ticketwizard.control
+ticketwizard.dtos
+ticketwizard.entidades
+ticketwizard.persistencia
+ticketwizard.presentacion
+ticketwizard
+C:\Users\PC\.m2\repository\com\mysql\mysql-connector-j\8.4.0\mysql-connector-j-8.4.0.jar = 1740025386533
+C:\Users\PC\.m2\repository\com\google\protobuf\protobuf-java\3.25.1\protobuf-java-3.25.1.jar = 1740025386590
+C:\Users\PC\.m2\repository\org\netbeans\external\AbsoluteLayout\RELEASE220\AbsoluteLayout-RELEASE220.jar = 1727416658753
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java = 1740025021780
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\allclasses-index.html = 1740359969729
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\allpackages-index.html = 1740359969730
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\element-list = 1740359969562
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\help-doc.html = 1740359969756
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\index-all.html = 1740359969749
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\index.html = 1740359969713
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\javadoc.bat = 1740359843607
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\member-search-index.js = 1740359969734
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\module-search-index.js = 1740359969731
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\overview-summary.html = 1740359969753
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\overview-tree.html = 1740359969710
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\package-search-index.js = 1740359969732
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\search.html = 1740359969751
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\serialized-form.html = 1740359969632
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\tag-search-index.js = 1740359969735
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\target\reports\apidocs\type-search-index.js = 1740359969733

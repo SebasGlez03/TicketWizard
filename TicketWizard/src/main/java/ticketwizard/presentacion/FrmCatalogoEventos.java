@@ -155,9 +155,6 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnEventosMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -11,13 +11,18 @@ import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.EventosDAO;
 import ticketwizard.persistencia.PersonasDAO;
 
-
 /**
+ * Clase main que inicia la aplicacion
  *
  * @author PC
  */
 public class TicketWizard {
 
+    /**
+     * Inicia la aplicacion
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 //        ConexionBD conexionBD = new ConexionBD();
 //
