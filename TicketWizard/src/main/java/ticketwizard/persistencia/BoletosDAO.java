@@ -390,4 +390,36 @@ public class BoletosDAO {
         
         return consultarBoleto(Boleto);
     }
+     
+     public Boletos comprarBoleto(int Usuario,int Boleto){
+        String codigoSQL = """
+                           call ComprarBoletos( ?, ?);
+                           """;
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, Usuario);
+            
+            comando.setInt(2, Boleto);
+            
+            comando.execute(codigoSQL);
+            
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+            
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return consultarBoleto(Boleto);
+    }
 }
