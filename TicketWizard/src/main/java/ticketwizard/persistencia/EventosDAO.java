@@ -89,28 +89,49 @@ public class EventosDAO {
                            WHERE codigoEvento = ?;
                            """;
 
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+
         try {
             // Crear la conexión con la base de datos
-            Connection conexion = conexionBD.crearConexion();
+            conexion = conexionBD.crearConexion();
 
-            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando = conexion.prepareStatement(codigoSQL);
             comando.setInt(1, codigoEventoRecibido); // Se pasa el codigoPersona al PreparedStatement
 
-            ResultSet resultadosConsulta = comando.executeQuery();
+            resultadosConsulta = comando.executeQuery();
 
-            Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
-            String nombre = resultadosConsulta.getString("nombre");
-            String descripcion = resultadosConsulta.getString("descripcion");
-            Date fechaHora = resultadosConsulta.getTimestamp("fechaHora");
-            String estado = resultadosConsulta.getString("estado");
-            String ciudad = resultadosConsulta.getString("ciudad");
-            Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
+            while (resultadosConsulta.next()) {
+                Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+                String nombre = resultadosConsulta.getString("nombre");
+                String descripcion = resultadosConsulta.getString("descripcion");
+                Date fechaHora = resultadosConsulta.getTimestamp("fechaHora");
+                String estado = resultadosConsulta.getString("estado");
+                String ciudad = resultadosConsulta.getString("ciudad");
+                Integer cantidadAsientos = resultadosConsulta.getInt("cantidadAsientos");
 
-            Eventos evento = new Eventos(codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos);
+                Eventos evento = new Eventos(codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos);
 
-            return evento;
+                return evento;
+            }
         } catch (SQLException ex) {
             System.err.println("Ha ocurrido un error al consultar el evento por id: " + ex);
+        } finally {
+            // Cerrar los recursos siempre, incluso si hay una excepcion
+            try {
+                if (resultadosConsulta != null) {
+                    resultadosConsulta.close();
+                }
+                if (comando != null) {
+                    comando.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                System.err.println("Ocurrio un error al cerrar las conexiones de eventos: " + ex);
+            }
         }
 
         return null;

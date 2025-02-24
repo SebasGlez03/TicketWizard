@@ -32,6 +32,11 @@ public class BoletosDAO {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Obtiene toda la lista de boletos de la base de datos
+     *
+     * @return Lista de todos los boletos de la base de datos
+     */
     public List<Boletos> consultarBoletos() {
         String codigoSQL = """
                            SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
@@ -39,13 +44,18 @@ public class BoletosDAO {
                            """;
 
         List<Boletos> listaBoletos = new LinkedList<>();
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+
         try {
             // Crear la conexion con la base de datos
-            Connection conexion = conexionBD.crearConexion();
+            conexion = conexionBD.crearConexion();
 
-            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando = conexion.prepareStatement(codigoSQL);
 
-            ResultSet resultadosConsulta = comando.executeQuery();
+            resultadosConsulta = comando.executeQuery();
 
             while (resultadosConsulta.next()) {
                 Integer codigoBoleto = resultadosConsulta.getInt("codigoBoleto");
@@ -92,11 +102,28 @@ public class BoletosDAO {
                 listaBoletos.add(boleto);
             }
 
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
         } catch (SQLException ex) {
             System.err.println("Ha ocurrido un error al obtener la lista de boletos: " + ex);
+        } finally {
+            try {
+                if (resultadosConsulta != null) {
+                    resultadosConsulta.close();
+                }
+                if (comando != null) {
+                    comando.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+            }
         }
 
-        return null;
+        return listaBoletos;
     }
 
 }

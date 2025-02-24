@@ -1,14 +1,20 @@
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmRegistro.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\ConexionBD.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\TicketWizard.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmInicioSesion.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmMiPerfilSaldo.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmCatalogoEventos.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\PersonasDTO.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Eventos.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\EventosDAO.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmMiPerfilDP.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\control\ControlInicio.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\EventosDTO.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Personas.java
-C:\Users\santi\Documents\GitHub\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\PersonasDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Ventas.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\ConexionBD.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmMiPerfilDP.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Transacciones.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\BoletosDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\EventosDTO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\PersonasDTO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmMiPerfilSaldo.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\TicketWizard.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\PersonasDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Personas.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmCatalogoEventos.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\Pruebas.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmInicioSesion.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\presentacion\FrmRegistro.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Boletos.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\entidades\Eventos.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\control\ControlInicio.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\persistencia\EventosDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\TicketWizard\TicketWizard\src\main\java\ticketwizard\dtos\BoletosDTO.java

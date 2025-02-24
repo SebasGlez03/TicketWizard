@@ -193,19 +193,17 @@ end;
 //
 
 insert into personas(nombre, apellidoPaterno, apellidoMaterno, calle, colonia, numero,correoElectronico, contrasenia,saldo, fechaNacimiento) 
-values("Admin", "TicketWizard", "Boletera", "No releccion", "Las haciendas", "25390","TicketWizard_Admin@hotmail.com", "efcff7df0fdfa45a7662d175c7ee11c4", 134000.23, "2002-08-19"),
-("Enrique", "Gonzales", "Lopez", "miguel aleman", "centro", "2513","Enrique_lo@hotmail.com", "d3a8924658e26150d64282cf45c6ba10", 20350.30, "2002-08-19"),
-("Alberto", "beltran", "marquez","monte mayor", "casa blanca", "3540", "Alberto.beltr05@hotmail.com", "185448cabf8855fdcae5c9ee47502a14", 14000.0, "1998-03-08"),
-("Carlos", "Gomez", "Perez", "Avenida Libertad", "El Bosque", "2094", "carlos.gomez89@hotmail.com", "d9c7f2d71ab073b2fc7d42f4e4a73133", 21500.0, "1995-07-21"),
-("Maria", "Lopez", "Martinez", "Calle Real", "Santa Teresa", "5823", "maria.lopez90@gmail.com", "a1d9d7be31bf66bbf46ef0c09e9cf8ab", 32000.0, "1990-12-11"),
-("Juan", "Rodriguez", "Sanchez", "Calle 16", "Lomas Verdes", "1342", "juan.rodriguez76@yahoo.com", "7c9fe54dfb3204938a1dca0e3d5b9b8d", 12800.0, "1997-09-03");
+values("Admin", "TicketWizard", "Boletera", "No releccion", "Las haciendas", "25390","TicketWizard_Admin@hotmail.com", "eaac3c5f810b358c1a4085d83bf929cf96b59f5ea0ee11e5c5f7d149f4f99d88", 134000.23, "2002-08-19"),
+("Enrique", "Gonzales", "Lopez", "miguel aleman", "centro", "2513","Enrique_lo@hotmail.com", "0a2246d9487e4cf1f4f28642f4dd12b80ababedbc0c4923162e0bb8897d796ee", 20350.30, "2002-08-19"),
+("Alberto", "beltran", "marquez","monte mayor", "casa blanca", "3540", "Alberto.beltr05@hotmail.com", "6bdb60a9068256f04b890480273007ed674cfaf95afaa5150d551b9355a5488a", 14000.0, "1998-03-08"),
+("Carlos", "Gomez", "Perez", "Avenida Libertad", "El Bosque", "2094", "carlos.gomez89@hotmail.com", "dc09e27955826b5d39f68b02fa34c42289ae37cdb05d3b1f8d1b5469b0835e1a", 21500.0, "1995-07-21"),
+("Maria", "Lopez", "Martinez", "Calle Real", "Santa Teresa", "5823", "maria.lopez90@gmail.com", "7aced22db86019426e3573bc796310e107a88277299038df9f4cf83941a5adaa", 32000.0, "1990-12-11"),
+("Juan", "Rodriguez", "Sanchez", "Calle 16", "Lomas Verdes", "1342", "juan.rodriguez76@yahoo.com", "422e414e04099d79820bb52b8aee1b79e884386ee70a304d63a7ad6b691b4600", 12800.0, "1997-09-03");
 
 insert into eventos(nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos) 
 values("romeo y julieta", "obra de teatro del aclamado shekspear", "2025-05-13", "Sonora" , "Ciudad Obregon", 230),
 ("The Lion King", "El musical de Broadway basado en la película de Disney", "2025-09-15", "Sonora", "Hermosillo", 600),
-("Cirque du Soleil", "Un espectáculo de circo con música, danza y acrobacias en vivo", "2025-10-03", "Sonora", "Nogales", 800),
-("Coldplay", "Concierto de la banda británica Coldplay en su gira mundial", "2025-11-20", "Sonora", "San Luis Río Colorado", 10000),
-("hamilton", "El famoso musical de brotway en su gira", "2025-08-09", "Sonora" , "Ciudad Obregon", 500);
+("Coldplay", "Concierto de la banda británica Coldplay en su gira mundial", "2025-11-20", "Sonora", "San Luis Río Colorado", 10000);
 
 insert into boletos(fila,asiento,numeroInterno,codigoUsuario,codigoEvento,estado,costoOriginal, costo)
 values("4B", 13 , "4b13D", 1, 1, "En venta", 110.00, 110.00)
@@ -272,52 +270,7 @@ values("4B", 13 , "4b13D", 1, 1, "En venta", 110.00, 110.00)
 ("2H", 17, "2h17i", 1, 3, "En venta", 250.00, 250.00),
 ("2I", 18, "2i18j", 1, 3, "En venta", 250.00, 250.00),
 ("2J", 19, "2j19k", 1, 3, "En venta", 250.00, 250.00),
-("2K", 20, "2k20l", 1, 3, "En venta", 250.00, 250.00),
-
-
-("2A", 1, "2a1b", 1, 4, "En venta", 700.00, 700.00),
-("2B", 2, "2b2c", 1, 4, "En venta", 700.00, 700.00),
-("2C", 3, "2c3d", 1, 4, "En venta", 700.00, 700.00),
-("2D", 4, "2d4e", 1, 4, "En venta", 700.00, 700.00),
-("2E", 5, "2e5f", 1, 4, "En venta", 700.00, 700.00),
-("2F", 6, "2f6g", 1, 4, "En venta", 700.00, 700.00),
-("2G", 7, "2g7h", 1, 4, "En venta", 700.00, 700.00),
-("2H", 8, "2h8i", 1, 4, "En venta", 700.00, 700.00),
-("2I", 9, "2i9j", 1, 4, "En venta", 700.00, 700.00),
-("2J", 10, "2j10k", 1, 4, "En venta", 700.00, 700.00),
-
-("3K", 11, "3k11l", 1, 4, "En venta", 700.00, 700.00),
-("3L", 12, "3l12m", 1, 4, "En venta", 700.00, 700.00),
-("3M", 13, "3m13n", 1, 4, "En venta", 700.00, 700.00),
-("3N", 14, "3n14o", 1, 4, "En venta", 700.00, 700.00),
-("3O", 15, "3o15p", 1, 4, "En venta", 700.00, 700.00),
-("3P", 16, "3p16q", 1, 4, "En venta", 700.00, 700.00),
-("3Q", 17, "3q17r", 1, 4, "En venta", 700.00, 700.00),
-("3R", 18, "3r18s", 1, 4, "En venta", 700.00, 700.00),
-("3S", 19, "3s19t", 1, 4, "En venta", 700.00, 700.00),
-("3T", 20, "3t20u", 1, 4, "En venta", 700.00, 700.00),
-
-("3A", 1, "3a1b", 1, 5, "En venta", 300.00, 300.00),
-("3B", 2, "3b2c", 1, 5, "En venta", 300.00, 300.00),
-("3C", 3, "3c3d", 1, 5, "En venta", 300.00, 300.00),
-("3D", 4, "3d4e", 1, 5, "En venta", 300.00, 300.00),
-("3E", 5, "3e5f", 1, 5, "En venta", 300.00, 300.00),
-("3F", 6, "3f6g", 1, 5, "En venta", 300.00, 300.00),
-("3G", 7, "3g7h", 1, 5, "En venta", 300.00, 300.00),
-("3H", 8, "3h8i", 1, 5, "En venta", 300.00, 300.00),
-("3I", 9, "3i9j", 1, 5, "En venta", 300.00, 300.00),
-("3J", 10, "3j10k", 1, 5, "En venta", 300.00, 300.00),
-
-("4A", 11, "4a11b", 1, 5, "En venta", 300.00, 300.00),
-("4B", 12, "4b12c", 1, 5, "En venta", 300.00, 300.00),
-("4C", 13, "4c13d", 1, 5, "En venta", 300.00, 300.00),
-("4D", 14, "4d14e", 1, 5, "En venta", 300.00, 300.00),
-("4E", 15, "4e15f", 1, 5, "En venta", 300.00, 300.00),
-("4F", 16, "4f16g", 1, 5, "En venta", 300.00, 300.00),
-("4G", 17, "4g17h", 1, 5, "En venta", 300.00, 300.00),
-("4H", 18, "4h18i", 1, 5, "En venta", 300.00, 300.00),
-("4I", 19, "4i19j", 1, 5, "En venta", 300.00, 300.00),
-("4J", 20, "4j20k", 1, 5, "En venta", 300.00, 300.00);
+("2K", 20, "2k20l", 1, 3, "En venta", 250.00, 250.00);
 
 call ComprarBoletos(2, 11);
 call ComprarBoletos(2, 12);
@@ -325,10 +278,6 @@ call ComprarBoletos(2, 31);
 call ComprarBoletos(2, 32);
 call ComprarBoletos(2, 51);
 call ComprarBoletos(2, 52);
-call ComprarBoletos(2, 71);
-call ComprarBoletos(2, 72);
-call ComprarBoletos(2, 91);
-call ComprarBoletos(2, 92);
 
 call ComprarBoletos(3, 13);
 call ComprarBoletos(3, 14);
@@ -336,10 +285,6 @@ call ComprarBoletos(3, 33);
 call ComprarBoletos(3, 34);
 call ComprarBoletos(3, 53);
 call ComprarBoletos(3, 54);
-call ComprarBoletos(3, 73);
-call ComprarBoletos(3, 74);
-call ComprarBoletos(3, 93);
-call ComprarBoletos(3, 94);
 
 call ComprarBoletos(4, 15);
 call ComprarBoletos(4, 16);
@@ -347,10 +292,6 @@ call ComprarBoletos(4, 35);
 call ComprarBoletos(4, 36);
 call ComprarBoletos(4, 55);
 call ComprarBoletos(4, 56);
-call ComprarBoletos(4, 75);
-call ComprarBoletos(4, 76);
-call ComprarBoletos(4, 95);
-call ComprarBoletos(4, 96);
 
 call ComprarBoletos(5, 17);
 call ComprarBoletos(5, 18);
@@ -358,10 +299,6 @@ call ComprarBoletos(5, 37);
 call ComprarBoletos(5, 38);
 call ComprarBoletos(5, 57);
 call ComprarBoletos(5, 58);
-call ComprarBoletos(5, 77);
-call ComprarBoletos(5, 78);
-call ComprarBoletos(5, 97);
-call ComprarBoletos(5, 98);
 
 call ComprarBoletos(6, 19);
 call ComprarBoletos(6, 20);
@@ -369,8 +306,4 @@ call ComprarBoletos(6, 39);
 call ComprarBoletos(6, 40);
 call ComprarBoletos(6, 59);
 call ComprarBoletos(6, 60);
-call ComprarBoletos(6, 79);
-call ComprarBoletos(6, 80);
-call ComprarBoletos(6, 99);
-call ComprarBoletos(6, 100);
 
