@@ -6,7 +6,9 @@ package ticketwizard.presentacion;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
 import ticketwizard.entidades.Eventos;
@@ -43,6 +45,7 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) this.tblEventos.getModel();
         for (Eventos evento : listaEventos) {
             Object[] filaTabla = {
+                evento.getCodigoEvento(),
                 evento.getNombre(),
                 evento.getDescripcion(),
                 evento.getFechaHora(),
@@ -70,6 +73,9 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
         btnVentaReventa = new javax.swing.JLabel();
         btnMisBoletos = new javax.swing.JLabel();
         btnEventos = new javax.swing.JLabel();
+        txtCodigoCompra = new javax.swing.JTextField();
+        btnComprar = new javax.swing.JButton();
+        lblBotonCompra = new javax.swing.JLabel();
         bgCatalogoEventos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,18 +88,21 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "nombre", "descripcion", "fechaHora", "Estado", "Ciudad", "Cantidad Asientos"
+                "codigo", "nombre", "descripcion", "fechaHora", "Estado", "Ciudad", "Cantidad Asientos"
             }
         ));
+        tblEventos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblEventos);
         if (tblEventos.getColumnModel().getColumnCount() > 0) {
-            tblEventos.getColumnModel().getColumn(0).setResizable(false);
             tblEventos.getColumnModel().getColumn(1).setResizable(false);
             tblEventos.getColumnModel().getColumn(2).setResizable(false);
             tblEventos.getColumnModel().getColumn(3).setResizable(false);
+            tblEventos.getColumnModel().getColumn(4).setResizable(false);
         }
+        tblEventos.getAccessibleContext().setAccessibleName("");
+        tblEventos.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 670, 490));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 670, 440));
 
         btnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,6 +144,21 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
         });
         getContentPane().add(btnEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 20));
 
+        txtCodigoCompra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtCodigoCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 650, 30, 30));
+
+        btnComprar.setText("Comprar");
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, -1));
+
+        lblBotonCompra.setForeground(new java.awt.Color(51, 51, 51));
+        lblBotonCompra.setText("Ingrese el codigo del boleto a comprar");
+        getContentPane().add(lblBotonCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 650, -1, -1));
+
         bgCatalogoEventos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgCatalogoEventos.png"))); // NOI18N
         getContentPane().add(bgCatalogoEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
@@ -153,7 +177,10 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMiPerfilMouseClicked
 
     private void btnMisBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisBoletosMouseClicked
-        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+        FrmCompraVenta frmCompraVenta = new FrmCompraVenta(control, personasDTO);
+        frmCompraVenta.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_btnMisBoletosMouseClicked
 
     private void btnVentaReventaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentaReventaMouseClicked
@@ -164,46 +191,22 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnEventosMouseClicked
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(CatalogoEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(CatalogoEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(CatalogoEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(CatalogoEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new CatalogoEventos().setVisible(true);
-//            }
-//        });
-//    }
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnComprarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgCatalogoEventos;
     private javax.swing.JLabel btnClose;
+    private javax.swing.JButton btnComprar;
     private javax.swing.JLabel btnEventos;
     private javax.swing.JLabel btnMiPerfil;
     private javax.swing.JLabel btnMisBoletos;
     private javax.swing.JLabel btnVentaReventa;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBotonCompra;
     private javax.swing.JTable tblEventos;
+    private javax.swing.JTextField txtCodigoCompra;
     // End of variables declaration//GEN-END:variables
 }
