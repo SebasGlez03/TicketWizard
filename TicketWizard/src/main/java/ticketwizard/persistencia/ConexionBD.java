@@ -17,7 +17,7 @@ public class ConexionBD {
     // Informacion para conectarte a la bd
     private final String cadenaConexion = "jdbc:mysql://localhost/ticketwizard";
     private final String usuario = "root";
-    private final String contrasenia = "SanSanty03";
+    private final String contrasenia = "root";
 
     public Connection crearConexion() throws SQLException {
         Connection conexion = DriverManager.getConnection(

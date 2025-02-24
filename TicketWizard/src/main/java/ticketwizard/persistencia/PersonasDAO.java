@@ -100,35 +100,61 @@ public class PersonasDAO {
                            WHERE codigoPersona = ?;
                            """;
 
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+
         try {
             // Crear la conexión con la base de datos
-            Connection conexion = conexionBD.crearConexion();
+            conexion = conexionBD.crearConexion();
 
-            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando = conexion.prepareStatement(codigoSQL);
             comando.setInt(1, codigoPersonaRecibido); // Se pasa el codigoPersona al PreparedStatement
 
-            ResultSet resultadosConsulta = comando.executeQuery();
+            resultadosConsulta = comando.executeQuery();
 
-            Integer codigoPersona = resultadosConsulta.getInt("codigoPersona");
-            String nombre = resultadosConsulta.getString("nombre");
-            String apellidoMaterno = resultadosConsulta.getString("apellidoMaterno");
-            String apellidoPaterno = resultadosConsulta.getString("apellidoPaterno");
-            String correoElectronico = resultadosConsulta.getString("correoElectronico");
-            String contrasenia = resultadosConsulta.getString("contrasenia");
-            double saldo = resultadosConsulta.getDouble("saldo");
-            Date fechaNacimiento = resultadosConsulta.getDate("fechaNacimiento");
-            String calle = resultadosConsulta.getString("calle");
-            String colonia = resultadosConsulta.getString("colonia");
-            String numero = resultadosConsulta.getString("numero");
+            while (resultadosConsulta.next()) {
 
-            Personas persona = new Personas(codigoPersona, nombre,
-                    apellidoPaterno, apellidoMaterno, correoElectronico,
-                    contrasenia, saldo, fechaNacimiento, calle, colonia, numero);
+                Integer codigoPersona = resultadosConsulta.getInt("codigoPersona");
+                String nombre = resultadosConsulta.getString("nombre");
+                String apellidoMaterno = resultadosConsulta.getString("apellidoMaterno");
+                String apellidoPaterno = resultadosConsulta.getString("apellidoPaterno");
+                String correoElectronico = resultadosConsulta.getString("correoElectronico");
+                String contrasenia = resultadosConsulta.getString("contrasenia");
+                double saldo = resultadosConsulta.getDouble("saldo");
+                Date fechaNacimiento = resultadosConsulta.getDate("fechaNacimiento");
+                String calle = resultadosConsulta.getString("calle");
+                String colonia = resultadosConsulta.getString("colonia");
+                String numero = resultadosConsulta.getString("numero");
 
-            return persona;
+                Personas persona = new Personas(codigoPersona, nombre,
+                        apellidoPaterno, apellidoMaterno, correoElectronico,
+                        contrasenia, saldo, fechaNacimiento, calle, colonia, numero);
+
+                return persona;
+            }
+
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
 
         } catch (SQLException ex) {
             System.err.println("Error al consultar personas por id: " + ex);
+        } finally {
+            // Crerrar los recursos siempre incluso aunque haya una excepcion
+            try {
+                if (resultadosConsulta != null) {
+                    resultadosConsulta.close();
+                }
+                if (comando != null) {
+                    comando.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                System.err.println("Ocurrio un error al cerrar las conexiones con personas: " + ex);
+            }
         }
 
         return null;
