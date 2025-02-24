@@ -193,12 +193,12 @@ end;
 //
 
 insert into personas(nombre, apellidoPaterno, apellidoMaterno, calle, colonia, numero,correoElectronico, contrasenia,saldo, fechaNacimiento) 
-values("Admin", "TicketWizard", "Boletera", "No releccion", "Las haciendas", "25390","TicketWizard_Admin@hotmail.com", "efcff7df0fdfa45a7662d175c7ee11c4", 134000.23, "2002-08-19"),
-("Enrique", "Gonzales", "Lopez", "miguel aleman", "centro", "2513","Enrique_lo@hotmail.com", "d3a8924658e26150d64282cf45c6ba10", 20350.30, "2002-08-19"),
-("Alberto", "beltran", "marquez","monte mayor", "casa blanca", "3540", "Alberto.beltr05@hotmail.com", "185448cabf8855fdcae5c9ee47502a14", 14000.0, "1998-03-08"),
-("Carlos", "Gomez", "Perez", "Avenida Libertad", "El Bosque", "2094", "carlos.gomez89@hotmail.com", "d9c7f2d71ab073b2fc7d42f4e4a73133", 21500.0, "1995-07-21"),
-("Maria", "Lopez", "Martinez", "Calle Real", "Santa Teresa", "5823", "maria.lopez90@gmail.com", "a1d9d7be31bf66bbf46ef0c09e9cf8ab", 32000.0, "1990-12-11"),
-("Juan", "Rodriguez", "Sanchez", "Calle 16", "Lomas Verdes", "1342", "juan.rodriguez76@yahoo.com", "7c9fe54dfb3204938a1dca0e3d5b9b8d", 12800.0, "1997-09-03");
+values("Admin", "TicketWizard", "Boletera", "No releccion", "Las haciendas", "25390","TicketWizard_Admin@hotmail.com", "eaac3c5f810b358c1a4085d83bf929cf96b59f5ea0ee11e5c5f7d149f4f99d88", 134000.23, "2002-08-19"),
+("Enrique", "Gonzales", "Lopez", "miguel aleman", "centro", "2513","Enrique_lo@hotmail.com", "0a2246d9487e4cf1f4f28642f4dd12b80ababedbc0c4923162e0bb8897d796ee", 20350.30, "2002-08-19"),
+("Alberto", "beltran", "marquez","monte mayor", "casa blanca", "3540", "Alberto.beltr05@hotmail.com", "6bdb60a9068256f04b890480273007ed674cfaf95afaa5150d551b9355a5488a", 14000.0, "1998-03-08"),
+("Carlos", "Gomez", "Perez", "Avenida Libertad", "El Bosque", "2094", "carlos.gomez89@hotmail.com", "dc09e27955826b5d39f68b02fa34c42289ae37cdb05d3b1f8d1b5469b0835e1a", 21500.0, "1995-07-21"),
+("Maria", "Lopez", "Martinez", "Calle Real", "Santa Teresa", "5823", "maria.lopez90@gmail.com", "7aced22db86019426e3573bc796310e107a88277299038df9f4cf83941a5adaa", 32000.0, "1990-12-11"),
+("Juan", "Rodriguez", "Sanchez", "Calle 16", "Lomas Verdes", "1342", "juan.rodriguez76@yahoo.com", "422e414e04099d79820bb52b8aee1b79e884386ee70a304d63a7ad6b691b4600", 12800.0, "1997-09-03");
 
 insert into eventos(nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos) 
 values("romeo y julieta", "obra de teatro del aclamado shekspear", "2025-05-13", "Sonora" , "Ciudad Obregon", 230),
