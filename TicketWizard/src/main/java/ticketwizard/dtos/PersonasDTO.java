@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class PersonasDTO {
 
+    private Integer codigoPersona;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -27,6 +28,36 @@ public class PersonasDTO {
     /**
      * Constructor que inicializa todos los atributos de la clase con el valor
      * de sus parametros
+     *
+     * @param codigoPersona Codigo identificador de la persona
+     * @param nombre Nombre de la persona
+     * @param apellidoPaterno Apellido paterno de la persona
+     * @param apellidoMaterno Apellido materno de la persona
+     * @param correoElectronico Correo electronico de la persona
+     * @param contrasenia Contrasenia de la persona
+     * @param saldo Saldo de la persona
+     * @param fechaNacimiento Fecha de nacimiento de la persona
+     * @param calle Calle de la direccion de la persona
+     * @param colonia Colonia de la direccion de la persona
+     * @param numeroCasa Numero de casa de la direccion de la persona
+     */
+    public PersonasDTO(Integer codigoPersona, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, double saldo, Date fechaNacimiento, String calle, String colonia, String numeroCasa) {
+        this.codigoPersona = codigoPersona;
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.correoElectronico = correoElectronico;
+        this.contrasenia = contrasenia;
+        this.saldo = saldo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.numeroCasa = numeroCasa;
+    }
+
+    /**
+     * Constructor que inicializa todos los atributos de la clase con el valor
+     * de sus parametros a excepcion del codigo identificador
      *
      * @param nombre Nombre de la persona
      * @param apellidoPaterno Apellido paterno de la persona
@@ -76,6 +107,15 @@ public class PersonasDTO {
         this.calle = calle;
         this.colonia = colonia;
         this.numeroCasa = numeroCasa;
+    }
+
+    /**
+     * Obtiene el codigo identificador de la persona
+     *
+     * @return Codigo identificador de la persona
+     */
+    public Integer getCodigoPersona() {
+        return codigoPersona;
     }
 
     /**

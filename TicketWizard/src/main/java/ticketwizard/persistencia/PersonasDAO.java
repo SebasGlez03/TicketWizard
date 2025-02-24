@@ -7,6 +7,7 @@ package ticketwizard.persistencia;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -261,6 +262,82 @@ public class PersonasDAO {
         }
 
         return null; // Devuelve null si no se encontró el usuario o la contraseña es incorrecta
+    }
+
+    /**
+     * Utiliza el Stored Procedure para agregar saldo a un usuario dado
+     *
+     * @param idUsuario Codigo identificador del usuario a agregar el saldo
+     * @param saldoAgregado Cantidad de saldo a agregar al usuario
+     */
+    public void agregarSaldo(Integer idUsuario, double saldoAgregado) {
+        String codigoSQL = "CALL AgregarSaldo(?, ?)";
+
+        Connection conexion = null;
+        CallableStatement comando = null;
+
+        try {
+            conexion = conexionBD.crearConexion();
+
+            comando = conexion.prepareCall(codigoSQL);
+
+            comando.setInt(1, idUsuario);
+            comando.setDouble(2, saldoAgregado);
+
+            comando.executeUpdate();
+
+            System.out.println("El saldo se ha agregado correctamente!");
+            JOptionPane.showMessageDialog(null, "El saldo se ha agregado correctamente!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            System.err.println("Ocurrio un error al llamar el SP agregar saldo: " + ex);
+        } finally {
+            try {
+                if (comando != null) {
+                    comando.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("Ocurrio un error al cerrar las conexiones del SP AgregarSaldo: " + ex);
+            }
+        }
+    }
+
+    /**
+     * Obtiene el saldo de un usuario en especifico
+     *
+     * @param idUsuario Codigo identificador del usuario a obtener el saldo
+     * @return Saldo del usuario en especifico
+     */
+    public double obtenerSaldoPorID(Integer idUsuario) {
+        String codigoSQL = """
+                           SELECT saldo
+                           FROM personas
+                           WHERE codigoPersona = ?
+                           """;
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        double saldo = 0;
+
+        try {
+            conexion = conexionBD.crearConexion();
+            comando = conexion.prepareStatement(codigoSQL);
+
+            comando.setInt(1, idUsuario);
+
+            resultadosConsulta = comando.executeQuery();
+            if (resultadosConsulta.next()) {
+                saldo = resultadosConsulta.getDouble("saldo");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener el saldo de la base de datos: " + ex);
+        }
+
+        return saldo;
     }
 
     /**

@@ -6,13 +6,16 @@ package ticketwizard.presentacion;
 
 import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
+import ticketwizard.persistencia.ConexionBD;
+import ticketwizard.persistencia.PersonasDAO;
 
 /**
  *
  * @author PC
  */
 public class FrmMiPerfilSaldo extends javax.swing.JFrame {
-
+    
+    ConexionBD conexionBD = new ConexionBD();
     private final ControlInicio control;
     private final PersonasDTO personasDTO;
 
@@ -29,9 +32,10 @@ public class FrmMiPerfilSaldo extends javax.swing.JFrame {
         this.personasDTO = personasDTO;
         mostrarSaldo();
     }
-
+    
     private void mostrarSaldo() {
-        lblSaldo.setText(Double.toString(personasDTO.getSaldo()));
+        PersonasDAO personaSaldo = new PersonasDAO(conexionBD);
+        lblSaldo.setText(Double.toString(personaSaldo.obtenerSaldoPorID(personasDTO.getCodigoPersona())));
     }
 
     /**
@@ -125,7 +129,9 @@ public class FrmMiPerfilSaldo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSaldoMouseClicked
-        // TODO add your handling code here:
+        FrmAgregarSaldo frmAgregarSaldo = new FrmAgregarSaldo(control, personasDTO);
+        frmAgregarSaldo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarSaldoMouseClicked
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked

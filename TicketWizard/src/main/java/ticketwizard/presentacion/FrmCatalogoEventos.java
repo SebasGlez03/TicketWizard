@@ -45,7 +45,10 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
             Object[] filaTabla = {
                 evento.getNombre(),
                 evento.getDescripcion(),
-                evento.getFechaHora()
+                evento.getFechaHora(),
+                evento.getEstado(),
+                evento.getCiudad(),
+                evento.getCantidadAsientos()
             };
             model.addRow(filaTabla);
         }
@@ -79,10 +82,16 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "nombre", "descripcion", "fechaHora"
+                "nombre", "descripcion", "fechaHora", "Estado", "Ciudad", "Cantidad Asientos"
             }
         ));
         jScrollPane1.setViewportView(tblEventos);
+        if (tblEventos.getColumnModel().getColumnCount() > 0) {
+            tblEventos.getColumnModel().getColumn(0).setResizable(false);
+            tblEventos.getColumnModel().getColumn(1).setResizable(false);
+            tblEventos.getColumnModel().getColumn(2).setResizable(false);
+            tblEventos.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 670, 490));
 

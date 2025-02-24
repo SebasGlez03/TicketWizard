@@ -96,11 +96,12 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
             Personas persona = personaDAO.iniciarSesion(txtCorreo.getText(), txtContrasenia.getText());
 
-            PersonasDTO personaDTO = new PersonasDTO(persona.getNombre(),
-                    persona.getApellidoPaterno(), persona.getApellidoMaterno(),
+            PersonasDTO personaDTO = new PersonasDTO(persona.getCodigoPersona(),
+                    persona.getNombre(), persona.getApellidoPaterno(),
+                    persona.getApellidoMaterno(),
                     persona.getCorreoElectronico(), persona.getContrasenia(),
-                    persona.getFechaNacimiento(), persona.getCalle(),
-                    persona.getColonia(), persona.getNumeroCasa());
+                    persona.getSaldo(), persona.getFechaNacimiento(),
+                    persona.getCalle(), persona.getColonia(), persona.getNumeroCasa());
 
             FrmCatalogoEventos frmCatalogoEventos = new FrmCatalogoEventos(control, personaDTO);
             frmCatalogoEventos.setVisible(true);
