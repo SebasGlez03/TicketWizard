@@ -127,7 +127,7 @@ public class FrmCambiarDatos extends javax.swing.JFrame {
     private void agregarDatosActuales() {
         txtNombre.setText(personasDTO.getNombre());
         txtApellidoPaterno.setText(personasDTO.getApellidoPaterno());
-        txtApellidoPaterno.setText(personasDTO.getApellidoMaterno());
+        txtApellidoMaterno.setText(personasDTO.getApellidoMaterno());
         txtCalle.setText(personasDTO.getCalle());
         txtColonia.setText(personasDTO.getColonia());
         txtNumeroCasa.setText(personasDTO.getNumeroCasa());
