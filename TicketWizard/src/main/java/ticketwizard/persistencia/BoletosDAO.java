@@ -125,5 +125,269 @@ public class BoletosDAO {
 
         return listaBoletos;
     }
+    
+    public Boletos consultarBoleto(int Boleto){
+        String codigoSQL = """
+                           SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
+                           FROM boletos where codigoBoleto = ?;
+                           """;
 
+        List<Boletos> listaBoletos = new LinkedList<>();
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            
+            
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, Boleto);
+            
+            resultadosConsulta = comando.executeQuery();
+
+            while (resultadosConsulta.next()){
+                Integer codigoBoleto = resultadosConsulta.getInt("codigoBoleto");
+                String fila = resultadosConsulta.getString("fila");
+                String asiento = resultadosConsulta.getString("asiento");
+                String numeroInterno = resultadosConsulta.getString("numeroInterno");
+                Integer codigoUsuario = resultadosConsulta.getInt("codigoUsuario");
+                Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+                String numeroSerie = resultadosConsulta.getString("numeroSerie");
+                double costoOriginal = resultadosConsulta.getDouble("costoOriginal");
+                double costo = resultadosConsulta.getDouble("costo");
+                String estado = resultadosConsulta.getString("estado");
+                
+                PersonasDAO personaBuscar = new PersonasDAO(conexionBD);
+                Personas persona = personaBuscar.consultarPersonaPorID(codigoUsuario);
+                
+                EventosDAO eventoBuscar = new EventosDAO(conexionBD);
+                Eventos evento = eventoBuscar.consultarEventoPorID(codigoEvento);
+                
+                Boletos boleto = new Boletos(codigoBoleto, fila, asiento,
+                        persona, evento, numeroSerie, costoOriginal,
+                        costo, estado);
+
+                listaBoletos.add(boleto);
+                
+            }
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return listaBoletos.getFirst();
+    }
+    
+    public List<Boletos> consultarBoletosUsuarios(int Usuario){
+        String codigoSQL = """
+                           SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
+                           FROM boletos where codigoUsuario = ?;
+                           """;
+
+        List<Boletos> listaBoletos = new LinkedList<>();
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            
+            
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+
+            comando.setInt(1, Usuario);
+            resultadosConsulta = comando.executeQuery();
+
+            while (resultadosConsulta.next()){
+                Integer codigoBoleto = resultadosConsulta.getInt("codigoBoleto");
+                String fila = resultadosConsulta.getString("fila");
+                String asiento = resultadosConsulta.getString("asiento");
+                String numeroInterno = resultadosConsulta.getString("numeroInterno");
+                Integer codigoUsuario = resultadosConsulta.getInt("codigoUsuario");
+                Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+                String numeroSerie = resultadosConsulta.getString("numeroSerie");
+                double costoOriginal = resultadosConsulta.getDouble("costoOriginal");
+                double costo = resultadosConsulta.getDouble("costo");
+                String estado = resultadosConsulta.getString("estado");
+                
+                PersonasDAO personaBuscar = new PersonasDAO(conexionBD);
+                Personas persona = personaBuscar.consultarPersonaPorID(codigoUsuario);
+                
+                EventosDAO eventoBuscar = new EventosDAO(conexionBD);
+                Eventos evento = eventoBuscar.consultarEventoPorID(codigoEvento);
+                
+                Boletos boleto = new Boletos(codigoBoleto, fila, asiento,
+                        persona, evento, numeroSerie, costoOriginal,
+                        costo, estado);
+
+                listaBoletos.add(boleto);
+                
+            }
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return listaBoletos;
+    }
+    
+    public List<Boletos> consultarBoletosEnVenta(){
+        String codigoSQL = """
+                           SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
+                           FROM boletos where estado = "En venta";
+                           """;
+
+        List<Boletos> listaBoletos = new LinkedList<>();
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            
+            
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            resultadosConsulta = comando.executeQuery();
+
+            while (resultadosConsulta.next()){
+                Integer codigoBoleto = resultadosConsulta.getInt("codigoBoleto");
+                String fila = resultadosConsulta.getString("fila");
+                String asiento = resultadosConsulta.getString("asiento");
+                String numeroInterno = resultadosConsulta.getString("numeroInterno");
+                Integer codigoUsuario = resultadosConsulta.getInt("codigoUsuario");
+                Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+                String numeroSerie = resultadosConsulta.getString("numeroSerie");
+                double costoOriginal = resultadosConsulta.getDouble("costoOriginal");
+                double costo = resultadosConsulta.getDouble("costo");
+                String estado = resultadosConsulta.getString("estado");
+                
+                PersonasDAO personaBuscar = new PersonasDAO(conexionBD);
+                Personas persona = personaBuscar.consultarPersonaPorID(codigoUsuario);
+                
+                EventosDAO eventoBuscar = new EventosDAO(conexionBD);
+                Eventos evento = eventoBuscar.consultarEventoPorID(codigoEvento);
+                
+                Boletos boleto = new Boletos(codigoBoleto, fila, asiento,
+                        persona, evento, numeroSerie, costoOriginal,
+                        costo, estado);
+
+                listaBoletos.add(boleto);
+                
+            }
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return listaBoletos;
+    }
+    
+    public List<Boletos> consultarBoletosUsuarioEvento(int Usuario, int Evento){
+        String codigoSQL = """
+                           SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
+                           FROM boletos where (codigoUsuario = ?) and (CodigoEventos = ?);
+                           """;
+
+        List<Boletos> listaBoletos = new LinkedList<>();
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, Usuario);
+            comando.setInt(2, Evento);
+            
+            resultadosConsulta = comando.executeQuery();
+
+            while (resultadosConsulta.next()){
+                Integer codigoBoleto = resultadosConsulta.getInt("codigoBoleto");
+                String fila = resultadosConsulta.getString("fila");
+                String asiento = resultadosConsulta.getString("asiento");
+                String numeroInterno = resultadosConsulta.getString("numeroInterno");
+                Integer codigoUsuario = resultadosConsulta.getInt("codigoUsuario");
+                Integer codigoEvento = resultadosConsulta.getInt("codigoEvento");
+                String numeroSerie = resultadosConsulta.getString("numeroSerie");
+                double costoOriginal = resultadosConsulta.getDouble("costoOriginal");
+                double costo = resultadosConsulta.getDouble("costo");
+                String estado = resultadosConsulta.getString("estado");
+                
+                PersonasDAO personaBuscar = new PersonasDAO(conexionBD);
+                Personas persona = personaBuscar.consultarPersonaPorID(codigoUsuario);
+                
+                EventosDAO eventoBuscar = new EventosDAO(conexionBD);
+                Eventos evento = eventoBuscar.consultarEventoPorID(codigoEvento);
+                
+                Boletos boleto = new Boletos(codigoBoleto, fila, asiento,
+                        persona, evento, numeroSerie, costoOriginal,
+                        costo, estado);
+
+                listaBoletos.add(boleto);
+                
+            }
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return listaBoletos;
+    }
+    
+     public Boletos venderBoleto(int Boleto, float Precio){
+        String codigoSQL = """
+                           call venderBoleto( ?, ?);
+                           """;
+
+        Connection conexion = null;
+        PreparedStatement comando = null;
+        ResultSet resultadosConsulta = null;
+        
+        try{
+            conexion = conexionBD.crearConexion();
+            
+            comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, Boleto);
+            
+            comando.setFloat(2, Precio);
+            
+            comando.execute(codigoSQL);
+            
+            conexion.close();
+            comando.close();
+            resultadosConsulta.close();
+            
+        }
+        catch (SQLException ex) {
+             System.err.println("Ha ocurrido un error al cerrar la conexion con boletos: " + ex);
+        }
+        
+        return consultarBoleto(Boleto);
+    }
 }
