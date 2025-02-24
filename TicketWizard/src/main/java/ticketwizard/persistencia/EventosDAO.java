@@ -136,5 +136,45 @@ public class EventosDAO {
 
         return null;
     }
+    
+    public List<Eventos> consultarEventosUsuario(int usuario) {
+        String codigoSQL = """
+                           select ev.codigoEvento, ev.nombre, ev.descripcion, ev.fechaHora, ev.estado, ev.ciudad, count(bl.codigoEvento) as cantidadBoletos
+                           from boletos as bl inner join eventos as ev 
+                           on ev.codigoEvento = bl.codigoEvento
+                           where bl.codigoUsuario = ?
+                           group by bl.codigoEvento;;
+                           """;
+
+        List<Eventos> listaEventos = new LinkedList<>();
+        try {
+
+            // Crear la conexion con la base de datos
+            Connection conexion = conexionBD.crearConexion();
+
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            // nos movemos a cada una de las filas de vueltas.
+            while (resultadosConsulta.next()) {
+                // Estamos dentro de una fila
+                Integer codigoEvento = resultadosConsulta.getInt("ev.codigoEvento");
+                String nombre = resultadosConsulta.getString("ev.nombre");
+                String descripcion = resultadosConsulta.getString("ev.descripcion");
+                Date fechaHora = resultadosConsulta.getDate("ev.fechaHora");
+                String estado = resultadosConsulta.getString("ev.estado");
+                String ciudad = resultadosConsulta.getString("ev.ciudad");
+                Integer cantidadAsientos = resultadosConsulta.getInt("Ev.cantidadBoletos");
+                Eventos evento = new Eventos(
+                        codigoEvento, nombre, descripcion, fechaHora, estado, ciudad, cantidadAsientos);
+                listaEventos.add(evento);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Error al consultar eventos");
+        }
+        return listaEventos;
+    }
 
 }
