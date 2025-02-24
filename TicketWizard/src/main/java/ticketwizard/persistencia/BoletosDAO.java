@@ -32,6 +32,11 @@ public class BoletosDAO {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Obtiene toda la lista de boletos de la base de datos
+     *
+     * @return Lista de todos los boletos de la base de datos
+     */
     public List<Boletos> consultarBoletos() {
         String codigoSQL = """
                            SELECT codigoBoleto, fila, asiento, numeroInterno, codigoUsuario, codigoEvento, numeroSerie, costoOriginal, costo, estado
