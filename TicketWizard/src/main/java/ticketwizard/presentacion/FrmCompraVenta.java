@@ -4,8 +4,12 @@
  */
 package ticketwizard.presentacion;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import ticketwizard.control.ControlInicio;
 import ticketwizard.dtos.PersonasDTO;
+import ticketwizard.entidades.Boletos;
+import ticketwizard.entidades.Eventos;
 
 /**
  *
@@ -26,6 +30,28 @@ public class FrmCompraVenta extends javax.swing.JFrame {
         initComponents();
         this.control = control;
         this.personasDTO = personasDTO;
+        llenarTablaBoletos();
+    }
+
+    /**
+     * Metodo que llena la tabla con todos los boletos
+     */
+    private void llenarTablaBoletos() {
+        List<Boletos> listaBoletos = this.control.consultarListaBoletos();
+        DefaultTableModel model = (DefaultTableModel) this.tblBoletos.getModel();
+        for (Boletos boletos : listaBoletos) {
+            Object[] filaTabla = {
+                boletos.getCodigoBoleto(),
+                boletos.getFila(),
+                boletos.getAsiento(),
+                boletos.getCodigoPersona().getNombre(),
+                boletos.getCodigoEvento().getNombre(),
+                boletos.getCodigoEvento().getFechaHora(),
+                boletos.getCosto()
+
+            };
+            model.addRow(filaTabla);
+        }
     }
 
     /**
@@ -37,34 +63,69 @@ public class FrmCompraVenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnClose = new javax.swing.JLabel();
+        lblBotonCompra = new javax.swing.JLabel();
+        txtCodigoCompra = new javax.swing.JTextField();
+        btnComprar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBoletos = new javax.swing.JTable();
         bgVentaReventa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCloseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 20, 20));
+
+        lblBotonCompra.setForeground(new java.awt.Color(51, 51, 51));
+        lblBotonCompra.setText("Ingrese el codigo del boleto a comprar");
+        getContentPane().add(lblBotonCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 650, -1, -1));
+
+        txtCodigoCompra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtCodigoCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 650, 30, 30));
+
+        btnComprar.setText("Comprar");
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, -1));
+
+        tblBoletos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Fila", "Asiento", "NombreVendedor", "Evento", "Numero", "Serie", "Costo"
+                "", "Fila", "Asiento", "NombreVendedor", "Evento", "FechaHora", "Costo"
             }
         ));
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        tblBoletos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblBoletos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 750, 520));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 750, 490));
 
         bgVentaReventa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgVentaReventa.png"))); // NOI18N
         getContentPane().add(bgVentaReventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 750));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCloseMouseClicked
+
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnComprarActionPerformed
 
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
@@ -100,7 +161,11 @@ public class FrmCompraVenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgVentaReventa;
+    private javax.swing.JLabel btnClose;
+    private javax.swing.JButton btnComprar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblBotonCompra;
+    private javax.swing.JTable tblBoletos;
+    private javax.swing.JTextField txtCodigoCompra;
     // End of variables declaration//GEN-END:variables
 }

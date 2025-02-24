@@ -5,10 +5,11 @@
 package ticketwizard.control;
 
 import java.util.List;
+import ticketwizard.entidades.Boletos;
 import ticketwizard.entidades.Eventos;
+import ticketwizard.persistencia.BoletosDAO;
 import ticketwizard.persistencia.ConexionBD;
 import ticketwizard.persistencia.EventosDAO;
-import ticketwizard.presentacion.FrmCatalogoEventos;
 import ticketwizard.presentacion.FrmInicioSesion;
 
 /**
@@ -20,6 +21,7 @@ public class ControlInicio {
 
     private ConexionBD conexionBD = new ConexionBD();
     private EventosDAO eventosDAO = new EventosDAO(conexionBD);
+    private BoletosDAO boletosDAO = new BoletosDAO(conexionBD);
     private FrmInicioSesion frmInicioSesion;
 
     /**
@@ -37,6 +39,15 @@ public class ControlInicio {
      */
     public List<Eventos> consultarListaEventos() {
         return this.eventosDAO.consultarEventos();
+    }
+
+    /**
+     * Metodo que consulta la lista de todos los boletos en venta
+     *
+     * @return Lista de todos los boletos en venta
+     */
+    public List<Boletos> consultarListaBoletos() {
+        return this.boletosDAO.consultarBoletosEnVenta();
     }
 
 }

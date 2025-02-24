@@ -4,6 +4,7 @@ ticketwizard\presentacion\FrmCatalogoEventos$1.class
 ticketwizard\persistencia\PersonasDAO.class
 ticketwizard\presentacion\FrmMiPerfilSaldo$1.class
 ticketwizard\presentacion\FrmRegistro.class
+ticketwizard\presentacion\FrmCompraVenta$2.class
 ticketwizard\presentacion\FrmCambiarDatos$3.class
 ticketwizard\presentacion\FrmMiPerfilDP$2.class
 ticketwizard\entidades\Ventas.class
@@ -28,8 +29,10 @@ ticketwizard\presentacion\FrmMiPerfilDP$3.class
 ticketwizard\presentacion\FrmCambiarDatos.class
 ticketwizard\presentacion\FrmInicioSesion$2.class
 ticketwizard\presentacion\FrmCambiarDatos$1.class
+ticketwizard\presentacion\FrmCompraVenta.class
 ticketwizard\persistencia\BoletosDAO.class
 ticketwizard\presentacion\FrmCatalogoEventos$6.class
+ticketwizard\presentacion\FrmCompraVenta$1.class
 ticketwizard\persistencia\ConexionBD.class
 ticketwizard\dtos\BoletoTransferenciaDto.class
 ticketwizard\presentacion\FrmMiPerfilSaldo$3.class

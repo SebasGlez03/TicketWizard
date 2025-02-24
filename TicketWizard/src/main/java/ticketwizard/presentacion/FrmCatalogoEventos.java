@@ -177,14 +177,14 @@ public class FrmCatalogoEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMiPerfilMouseClicked
 
     private void btnMisBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisBoletosMouseClicked
-        FrmCompraVenta frmCompraVenta = new FrmCompraVenta(control, personasDTO);
-        frmCompraVenta.setVisible(true);
-        this.dispose();
+        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_btnMisBoletosMouseClicked
 
     private void btnVentaReventaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentaReventaMouseClicked
-        JOptionPane.showMessageDialog(this, "Boton en proceso", "En proceso", JOptionPane.INFORMATION_MESSAGE);
+        FrmCompraVenta frmCompraVenta = new FrmCompraVenta(control, personasDTO);
+        frmCompraVenta.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVentaReventaMouseClicked
 
     private void btnEventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEventosMouseClicked
