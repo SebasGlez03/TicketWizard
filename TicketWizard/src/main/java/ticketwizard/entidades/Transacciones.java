@@ -20,6 +20,27 @@ public class Transacciones {
     Integer codigoBoleto;
     Integer codigoVendedor;
 
+    public Transacciones(Date fehcaHora, String tipoAdquision, float costo, Integer codigoComprador, Integer codigoBoleto, Integer codigoVendedor) {
+        this.fehcaHora = fehcaHora;
+        this.tipoAdquision = tipoAdquision;
+        this.costo = costo;
+        this.codigoComprador = codigoComprador;
+        this.codigoBoleto = codigoBoleto;
+        this.codigoVendedor = codigoVendedor;
+    }
+
+    public Transacciones(Integer codigoTransaccion, Date fehcaHora, String tipoAdquision, float costo, Integer codigoComprador, Integer codigoBoleto, Integer codigoVendedor) {
+        this.codigoTransaccion = codigoTransaccion;
+        this.fehcaHora = fehcaHora;
+        this.tipoAdquision = tipoAdquision;
+        this.costo = costo;
+        this.codigoComprador = codigoComprador;
+        this.codigoBoleto = codigoBoleto;
+        this.codigoVendedor = codigoVendedor;
+    }
+
+    
+    
     public Integer getCodigoTransaccion() {
         return codigoTransaccion;
     }
