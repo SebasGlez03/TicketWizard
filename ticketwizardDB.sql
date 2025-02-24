@@ -192,6 +192,21 @@ begin
 end;
 //
 
+Delimiter // 
+create procedure Consulta_boleto_transferencia(
+in id_evento int, in id_Usuario int
+)
+begin 
+	Select 
+    bl.codigoBoleto, bl.fila, bl.asiento, bl.numeroInterno, costoOriginal, bl.estado,
+	tr.codigoTransaccion,tr.fechaHora, tr.tipoAdquision 
+    from boletos as bl 
+	inner join transaciones as tr
+	on bl.codigoBoleto = tr.codigoBoleto
+	where (bl.codigoEvento = id_evento) and (bl.codigoUsuario = id_Usuario);
+end;
+//
+	
 insert into personas(nombre, apellidoPaterno, apellidoMaterno, calle, colonia, numero,correoElectronico, contrasenia,saldo, fechaNacimiento) 
 values("Admin", "TicketWizard", "Boletera", "No releccion", "Las haciendas", "25390","TicketWizard_Admin@hotmail.com", "eaac3c5f810b358c1a4085d83bf929cf96b59f5ea0ee11e5c5f7d149f4f99d88", 134000.23, "2002-08-19"),
 ("Enrique", "Gonzales", "Lopez", "miguel aleman", "centro", "2513","Enrique_lo@hotmail.com", "0a2246d9487e4cf1f4f28642f4dd12b80ababedbc0c4923162e0bb8897d796ee", 20350.30, "2002-08-19"),
