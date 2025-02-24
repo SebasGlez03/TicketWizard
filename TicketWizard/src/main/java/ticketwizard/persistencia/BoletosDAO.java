@@ -43,6 +43,7 @@ public class BoletosDAO {
         Connection conexion = null;
         PreparedStatement comando = null;
         ResultSet resultadosConsulta = null;
+
         try {
             // Crear la conexion con la base de datos
             conexion = conexionBD.crearConexion();
@@ -117,7 +118,7 @@ public class BoletosDAO {
             }
         }
 
-        return null;
+        return listaBoletos;
     }
 
 }
